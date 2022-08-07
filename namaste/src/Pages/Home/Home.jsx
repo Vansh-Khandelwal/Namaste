@@ -8,13 +8,13 @@ import Right from '../../Components/Right/Right'
 const Home = () => {
   return (
     <div className='home'>
-        <div className="profile">
+        <div className="home-profile">
             <Profile/>
         </div>
-        <div className="postlayout">
+        <div className="home-postlayout">
             <PostLayout/>
         </div>
-        <div className="right">
+        <div className="home-right">
             <Right/>
         </div>
     </div>

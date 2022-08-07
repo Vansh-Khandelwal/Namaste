@@ -2,7 +2,7 @@ import React from 'react'
 
 const PostLayout = () => {
   return (
-    <div>PostLayout</div>
+    <div className='postlayout'>PostLayout</div>
   )
 }
 
