@@ -3,7 +3,7 @@ import './Following.css'
 
 const Following = () => {
   return (
-    <div>Following</div>
+    <div></div>
   )
 }
 

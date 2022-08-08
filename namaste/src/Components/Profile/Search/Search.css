@@ -1,3 +1,9 @@
+.logo-search {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 .logo {
-    width: 30px;
+    width: 60px;
 }
