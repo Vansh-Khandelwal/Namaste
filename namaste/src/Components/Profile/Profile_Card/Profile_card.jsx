@@ -1,4 +1,5 @@
 import React from 'react'
+import './Profile_card.css'
 
 const Profile_card = () => {
   return (
