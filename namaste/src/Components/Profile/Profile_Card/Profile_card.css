@@ -1,0 +1,9 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--profileshadow);
+}
