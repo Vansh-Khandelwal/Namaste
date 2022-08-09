@@ -1,6 +1,9 @@
 import React from 'react'
 import './Search.css'
 
+
+import {MdOutlineSearch} from 'react-icons/md';
+
 const Search = () => {
   return (
     <div className='logo-search'>
@@ -8,7 +11,7 @@ const Search = () => {
       <div className="search">
         <input type="text" name="" id="" placeholder='#Explore'/>
         <div className="search-icon">
-          
+          <MdOutlineSearch/>
         </div>
       </div>
     </div>
