@@ -24,18 +24,20 @@ const Profile_card = () => {
             <span className="num-followers">6,235</span>
             <span>Followers</span>
           </div>
-          <div className="vertical"></div>
           <div className="followings">
             <span className="num-following">1223</span>
             <span>Following</span>
-          </div>         
-          <div className="vertical"></div>
+          </div>
           <div className="posts">
             <span className="num-posts">3</span>
             <span>Posts</span>
           </div>
         </div>
         <hr />
+      </div>
+
+      <div className="profile-link">
+        My Profile
       </div>
     </div>
   )
