@@ -17,6 +17,10 @@
     --searchIcon: linear-gradient(106.23deg, #f99827, #f95f35 100%);
 }
 
+* {
+    overflow: hidden;
+}
+
 .App {
     overflow: hidden;
     padding: 1rem 1rem;

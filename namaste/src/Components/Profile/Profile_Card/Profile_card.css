@@ -1,4 +1,5 @@
 .profile-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 1.5rem;
@@ -6,4 +7,60 @@
     align-items: center;
     justify-content: center;
     box-shadow: var(--profileshadow);
+}
+
+.profile-images {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.profile-images img:nth-of-type(1) {
+    width: 100%;
+}
+
+.profile-images img:nth-of-type(2) {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -3rem;
+    box-shadow: var(--profileshadow);
+}
+
+.profile-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.3rem;
+    gap: 10px;
+}
+
+.profile-name {
+    font-weight: 700;
+}
+
+.follow-status {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.follow-status hr {
+    width: 90%;
+    border: 1px solid var(--hrColor);
+}
+
+.f-status {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
 }
