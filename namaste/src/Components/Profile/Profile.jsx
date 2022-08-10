@@ -1,7 +1,7 @@
 import React from 'react'
 import './Profile.css'
 
-import Following from './Following/Following'
+import Following from './Following/Following.jsx'
 import ProfileCard from './Profile_Card/Profile_card'
 import Search from './Search/Search'
 

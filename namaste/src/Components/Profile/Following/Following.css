@@ -1,0 +1,52 @@
+.following {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.following-title {
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+.following-list {
+    width: 100%;
+    margin-top: 1.3rem;
+}
+
+.follower-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prof-about {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.prof-image {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+}
+
+.prof-name {
+    font-weight: 550;
+}
+
+.prof-tag {
+    font-size: 0.8rem;
+}
+
+.follow-button {
+    background: var(--searchIcon);
+    color: var(--appColor);
+    padding: 0.2rem 1rem;
+    border-radius: 0.4rem;
+    justify-self: flex-end;
+}
