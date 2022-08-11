@@ -9,8 +9,23 @@ const Following = () => {
     <div className="following">
       <div className="following-title">Who is following you</div>
       <div className="following-list">
-
-        <div className="follower-line">
+      {
+        followers.map((follower, index)=>{
+          return(
+            <div className="follower-line">
+              <div className="prof-about">
+                <img src={dp} alt="" className="prof-image"/>
+                <span>
+                  <div className="prof-name">{follower.name}</div>
+                  <div className="prof-tag">@{follower.tag}</div>
+                </span>
+              </div>
+              <button className="follow-button">Follow</button>
+            </div>
+          )
+        })
+      }
+        {/* <div className="follower-line">
           <div className="prof-about">
             <img src={dp} alt="" className="prof-image"/>
             <span>
@@ -19,7 +34,7 @@ const Following = () => {
             </span>
           </div>
           <div className="follow-button">Follow</div>
-        </div>
+        </div> */}
 
       </div>
     </div>
