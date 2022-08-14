@@ -12,7 +12,6 @@
     display: flex;
     flex: 3rem auto;
     gap: 1rem;
-    margin-bottom: 1rem;
 }
 
 .addpost-prof-image {
@@ -33,5 +32,36 @@
 }
 
 .addpost-options {
-    flex-wrap: wrap;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.i {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.i span {
+    font-size: 1rem;
+}
+
+
+/* Icon color */
+
+.image-icon {
+    color: rgb(89, 148, 0);
+}
+
+.video-icon {
+    color: purple;
+}
+
+.location-icon {
+    color: rgb(252, 117, 117);
+}
+
+.schedule-icon {
+    color: rgb(212, 212, 0);
 }

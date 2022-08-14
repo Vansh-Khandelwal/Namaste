@@ -52,4 +52,5 @@
 .button:hover {
     cursor: pointer;
     background: var(--orange);
+    box-shadow: 0px 0px 0px 0px;
 }
