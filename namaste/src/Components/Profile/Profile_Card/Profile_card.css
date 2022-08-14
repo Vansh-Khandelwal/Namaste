@@ -57,7 +57,9 @@
 
 .follow-status hr {
     width: 90%;
-    border: 1px solid var(--hrColor);
+    height: 1.4px;
+    border-width: 0;
+    background-color: rgb(174, 174, 174);
 }
 
 .f-status {

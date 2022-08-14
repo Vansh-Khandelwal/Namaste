@@ -1,0 +1,37 @@
+.Addpost {
+    width: 100%;
+    padding: 1rem;
+    background: var(--cardColor);
+    border-radius: 1rem;
+    box-sizing: border-box;
+}
+
+.addpost-input {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex: 3rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.addpost-prof-image {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+}
+
+.addpost-caption {
+    background: transparent;
+    border: none;
+    outline: none;
+    background-color: var(--inputColor);
+    border-radius: 10px;
+    padding: 0.8rem;
+    width: max-content;
+    width: 90%;
+}
+
+.addpost-options {
+    flex-wrap: wrap;
+}
