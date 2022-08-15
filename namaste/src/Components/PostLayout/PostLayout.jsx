@@ -1,6 +1,6 @@
 import React from 'react'
 import { Addpost } from './Add-post/Addpost'
-import { Posts } from './Posts/Posts'
+import Posts from './Posts/Posts.jsx'
 
 import './PostLayout.css'
 
