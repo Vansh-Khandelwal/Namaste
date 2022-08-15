@@ -8,9 +8,9 @@
     --cardColor: rgba(255, 255, 255, 0.64);
     --buttonBg: linear-gradient(98.63deg, #f9a225, #f95f35 100%);
     --inputColor: rgba(40, 52, 62, 0.07);
-    --photo: #4cb256;
+    --photo: rgb(89, 148, 0);
     --video: #4a4eb7;
-    --location: #ef5757;
+    --location: rgb(252, 117, 117);
     --schedule: #e1ae4a;
     --circleColor: #a6ddf0;
     --appColor: #f3f3f3;
@@ -44,7 +44,6 @@
     padding: 0.4rem 1rem;
     border-radius: 0.4rem;
     justify-self: flex-end;
-    box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.25);
     transition: background-color ease-in-out box-shadow 2s ease-in-out;
     margin-right: 10px;
 }
@@ -52,5 +51,4 @@
 .button:hover {
     cursor: pointer;
     background: var(--orange);
-    box-shadow: 0px 0px 0px 0px;
 }

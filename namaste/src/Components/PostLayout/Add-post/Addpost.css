@@ -41,6 +41,7 @@
     font-size: 1.4rem;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .i span {
@@ -59,9 +60,31 @@
 }
 
 .location-icon {
-    color: rgb(252, 117, 117);
+    color: var(--location);
 }
 
 .schedule-icon {
-    color: rgb(212, 212, 0);
+    color: var(--schedule);
+}
+
+
+/* previews */
+
+.previewImage {
+    position: relative;
+}
+
+.previewImage svg {
+    font-size: 1.4rem;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+}
+
+.previewImage img {
+    margin-top: 1.5rem;
+    width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
