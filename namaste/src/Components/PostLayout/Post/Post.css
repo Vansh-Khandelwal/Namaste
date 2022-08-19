@@ -1,8 +1,10 @@
-.postslayout {
-    width: 100%;
+.Post {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    gap: 1rem;
+}
+
+.Post-Image {
+    width: 95%;
+    object-fit: cover;
 }

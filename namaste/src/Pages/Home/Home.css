@@ -11,6 +11,7 @@
 
 .home-postlayout {
     width: 100%;
+    overflow-x: hidden;
 }
 
 .home-right {
