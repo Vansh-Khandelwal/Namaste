@@ -10,9 +10,9 @@ const Following = () => {
       <div className="following-title">Who is following you</div>
       <div className="following-list">
       {
-        followers.map((follower, index)=>{
+        followers.map((follower, id)=>{
           return(
-            <div className="follower-line">
+            <div className="follower-line" key={id}>
               <div className="prof-about">
                 <img src={dp} alt="" className="prof-image"/>
                 <span>

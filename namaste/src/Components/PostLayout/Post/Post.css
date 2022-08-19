@@ -1,10 +1,17 @@
 .Post {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Post-Image {
-    width: 95%;
-    object-fit: cover;
+.Post img {
+    height: 400px;
+    /* margin: 0.2rem; */
 }
+
+
+/* 
+.Post-detail {
+    margin: 0.2rem;
+} */
