@@ -1,15 +1,18 @@
 .logo-search {
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
 .logo-search input {
+    width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
 }
 
 .search {
+    width: 70%;
     background-color: var(--inputColor);
     display: flex;
     gap: 0.3rem;

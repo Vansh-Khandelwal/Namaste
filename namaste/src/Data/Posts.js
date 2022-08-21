@@ -1,4 +1,4 @@
-import dp from '../../../images/dp.jpg'
+import dp from '../images/dp.jpg'
 
 export const posts = [{
         img: dp,

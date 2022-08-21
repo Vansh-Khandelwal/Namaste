@@ -1,0 +1,24 @@
+.right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navicons {
+    width: 100%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #ff7b08;
+    margin-top: 1rem;
+}
+
+.r-btn {
+    width: 100%;
+    align-self: flex-start;
+    height: 2.2rem;
+    margin-top: 2rem;
+}

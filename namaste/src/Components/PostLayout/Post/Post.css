@@ -2,12 +2,28 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: var(--cardColor);
+    border-radius: 1rem;
 }
 
 .Post img {
-    height: 400px;
-    /* margin: 0.2rem; */
+    width: 100%;
+    max-height: 40rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    /* background-color: rgb(149, 143, 143); */
+}
+
+.postReactions {
+    font-size: 1.5rem;
+    color: var(--darkorange);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
 }
 
 

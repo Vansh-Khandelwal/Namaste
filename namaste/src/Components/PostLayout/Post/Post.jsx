@@ -1,4 +1,6 @@
 import React from 'react'
+import './Post.css'
+
 import {RiHeartFill, RiHeartLine, RiShareForwardLine} from 'react-icons/ri'
 import {FaRegCommentDots} from 'react-icons/fa'
 

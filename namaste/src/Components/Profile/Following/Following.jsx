@@ -1,6 +1,6 @@
 import React from 'react'
 import './Following.css'
-import { followers } from './following.js'
+import { followers } from '../../../Data/following.js'
 
 import dp from '../../../images/dp.jpg'
 
