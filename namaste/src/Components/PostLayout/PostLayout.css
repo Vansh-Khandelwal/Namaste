@@ -8,3 +8,7 @@
     overflow-x: hidden;
     scrollbar-width: none;
 }
+
+.postslayout::-webkit-scrollbar {
+    display: none;
+}

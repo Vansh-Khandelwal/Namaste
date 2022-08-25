@@ -16,9 +16,9 @@ const Post = ({data}) => {
             <RiShareForwardLine/>
         </div>
 
-        <span>{data.likes} Likes</span>
+        <span className="post-likes">{data.likes} Likes</span>
 
-        <div className="Post-detail">
+        <div className="post-detail">
           <span><b>{data.name}</b></span>
           <span> {data.desc}</span>
         </div>

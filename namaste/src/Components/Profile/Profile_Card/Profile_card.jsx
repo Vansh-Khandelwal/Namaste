@@ -4,7 +4,8 @@ import './Profile_card.css'
 import cover from '../../../images/cover.jpg'
 import dp from '../../../images/dp.jpg'
 
-const Profile_card = () => {
+const Profile_card = ({ProfilePage}) => {
+
   return (
     <div className='profile-card'>
       <div className="profile-images">
@@ -20,25 +21,36 @@ const Profile_card = () => {
       <div className="follow-status">
         <hr />
         <div className='f-status'>
-          <div className="followers">
-            <span className="num-followers">6,235</span>
-            <span>Followers</span>
+          <div className="statusInfo followers">
+            <span className="num-followers bold">6,235</span>
+            <span className="gray">Followers</span>
           </div>
-          <div className="followings">
-            <span className="num-following">1223</span>
-            <span>Following</span>
+          <div className="statusInfo followings">
+            <span className="num-following bold">1223</span>
+            <span className="gray">Following</span>
           </div>
-          <div className="posts">
-            <span className="num-posts">3</span>
-            <span>Posts</span>
-          </div>
+
+          {
+            ProfilePage&&(
+              <>
+              <div className="statusInfo posts">
+                <span className="num-posts bold">3</span>
+                <span className="gray">Posts</span>
+              </div>
+              </>
+            )
+          }
+
         </div>
         <hr />
       </div>
-
-      <div className="profile-link">
-        My Profile
-      </div>
+      
+      {
+        ProfilePage?'':
+        <div className="profile-link">
+          My Profile
+        </div>
+      }
     </div>
   )
 }

@@ -26,6 +26,11 @@
     gap: 1.5rem;
 }
 
+.post-likes {
+    color: var(--gray);
+    font-size: 12px;
+}
+
 
 /* 
 .Post-detail {

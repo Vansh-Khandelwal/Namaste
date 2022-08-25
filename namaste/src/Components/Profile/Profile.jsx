@@ -5,11 +5,11 @@ import Following from './Following/Following.jsx'
 import ProfileCard from './Profile_Card/Profile_card'
 import Search from './Search/Search'
 
-const Profile = () => {
+const Profile = ({ProfilePage}) => {
   return (
     <div className='profile'>
       <Search/>
-      <ProfileCard/>
+      <ProfileCard ProfilePage={ProfilePage}/>
       <Following/>
     </div>
   )
