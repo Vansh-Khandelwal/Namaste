@@ -1,5 +1,5 @@
 import React from 'react'
-import { Addpost } from './Add-post/Addpost'
+import Addpost from './Add-post/Addpost.jsx'
 import Posts from './Posts/Posts.jsx'
 
 import './PostLayout.css'

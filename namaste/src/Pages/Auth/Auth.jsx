@@ -20,23 +20,23 @@ const Auth = () => {
     function SignUp(){
         return(
             <div className="Auth-right">
-                <form action="" className="InfoForm">
+                <form action="" className="SignUpForm">
 
                     <h3>Sign Up</h3>
 
                     <div>
-                        <input type="text" placeholder="First Name" className="form-info" name='firstname'/>
-                        <input type="text" placeholder="Last Name" className="form-info" name='lastname'/>
+                        <input type="text" placeholder="First Name" className="signup-info" name='firstname'/>
+                        <input type="text" placeholder="Last Name" className="signup-info" name='lastname'/>
                     </div>
                     <div>
-                        <input type="text" placeholder="Username" className="form-info" name='username'/>
+                        <input type="text" placeholder="Username" className="signup-info" name='username'/>
                     </div>
                     <div>
-                        <input type="text" placeholder="Password" className="form-info" name='password'/>
-                        <input type="text" placeholder="Confirm Password" className="form-info" name='cpassword'/>
+                        <input type="text" placeholder="Password" className="signup-info" name='password'/>
+                        <input type="text" placeholder="Confirm Password" className="signup-info" name='cpassword'/>
                     </div>
 
-                    <span>Already have an account.Login! <button className="button info-btn">Sign Up</button></span>
+                    <span>Already have an account.Login! <button className="button info-btn" type='submit'>Sign Up</button></span>
 
                 </form>
             </div>

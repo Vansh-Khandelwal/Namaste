@@ -1,0 +1,23 @@
+.InfoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.InfoForm div {
+    display: flex;
+    gap: 1rem;
+}
+
+.info-info {
+    border: none;
+    outline: none;
+    background-color: var(--inputColor);
+    flex: 1;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.edit-btn {
+    height: 2rem;
+}

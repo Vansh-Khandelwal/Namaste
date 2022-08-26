@@ -5,7 +5,7 @@ import dp from '../../../images/dp.jpg'
 
 import {MdImage, MdVideocam, MdLocationPin, MdSchedule, MdOutlineCancel} from 'react-icons/md'
 
-export const Addpost = () => {
+const Addpost = () => {
 
   const [image, setImage] = useState(null);
   const imageRef = useRef();
@@ -44,3 +44,5 @@ export const Addpost = () => {
     </div>
   )
 }
+
+export default Addpost
