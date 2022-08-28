@@ -1,10 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 const app = express();
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 
-mongoose.connect("mongodb+srv://Vansh:Prakhar@22@cluster0.seafvy5.mongodb.net/namaste?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(5000, () => console.log("Listening")));
+dotenv.config()
+
+mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(process.env.PORT, () => console.log("Listening")))
+    .catch((err) => { console.log(err) })
