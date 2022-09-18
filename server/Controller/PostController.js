@@ -1,5 +1,7 @@
 import PostModel from "../Models/postModel.js"
 import bcrypt from "bcrypt"
+import mongoose from "mongoose"
+import UserModel from "../Models/userModel.js"
 
 // Create new post
 
@@ -105,6 +107,55 @@ export const likeDislikePost = async(req, res) => {
             res.status(200).json("Post Disliked")
 
         }
+
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
+
+// Timeline of post
+
+export const getTimelinePost = async(req, res) => {
+
+    const userId = req.params.id
+
+    try {
+
+        const currentUserPosts = await PostModel.find({ userId: userId })
+        const followingPosts = await UserModel.aggregate([{
+                    $match: {
+                        _id: new mongoose.Types.ObjectId(userId)
+                            // when this will run it will return us a single document which will have _id as the userId
+                    }
+                },
+                {
+                    $lookup: {
+                        // we use this when we have to match a document with another model by placing the query in other model
+                        // Here we are placing the query in User Model and we want to get result from Post Model while remaining in the User Model
+                        from: "posts",
+                        // from which model/data base name (in mongoDB)
+                        localField: "Following",
+                        // local field is like local key / Local key name, here it is "Following"
+                        foreignField: "userId",
+                        // foreign field is like foreign key / Foreign key name, here it is "userId"
+                        as: "followingPosts"
+                            // where the result is to be stored
+                    }
+                },
+                {
+                    $project: {
+                        followingPosts: 1,
+                        // return type of the result / which fields you want to return 
+                        // By default _id field is also transferred so neglect that
+                        _id: 0
+                    }
+                }
+            ])
+            // aggregate is array of steps here each step is written within {}
+
+        res.status(200).json(currentUserPosts.concat(...followingPosts[0].followingPosts).sort((a, b) => { return b.createdAt - a.createdAt }))
+            // ... is spread function
+            // to show both current user posts and the following users posts therefore concated them together
 
     } catch (error) {
         res.status(500).json(error)
