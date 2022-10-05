@@ -10,7 +10,7 @@ const Profilepg = () => {
     <div className="Profile-page">
       <ProfilePgLeft/>
       <div className="Profilepg-center">
-        <Profile_card ProfilePage={true}/>
+        <Profile_card ProfilePage={false}/>
         <PostLayout/>
       </div>
       <Right/>

@@ -6,7 +6,12 @@
 }
 
 .Profilepg-center {
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.Profilepg-center::-webkit-scrollbar {
+    display: none;
 }

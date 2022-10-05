@@ -19,10 +19,10 @@
 }
 
 .App {
-    overflow: hidden;
     padding: 1rem 1rem;
     color: var(--black);
     background-color: var(--appColor);
+    scrollbar-width: 0px;
 }
 
 .circle {
