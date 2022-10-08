@@ -1,10 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 import './Auth.css'
+import {useDispatch} from 'react-redux'
+import { logIn, signUp } from '../../Actions/AuthActions/logIn'
 
 const Auth = () => {
 
     const [IsSignUp, setIsSignUp] = useState(true)
+
+    const dispatch = useDispatch()
 
     const [data, setData] = useState({
         firstname : "",
@@ -22,14 +26,25 @@ const Auth = () => {
     // this way data gets destructured and for the name of that field same as that in the data variable the input value will be taken as its value
 
     const handleSubmit = (event) => {
+
         event.preventDefault();
 
         if(IsSignUp)
         {
-            if (data.password!==data.confirmPassword)
+            if (data.password === data.cpassword)
+            {
+                dispatch(signUp(data))
+            }
+
+            else
             {
                 setConfirmPassword(false)
             }
+        }
+
+        else
+        {
+            dispatch(logIn(data))
         }
     }
 

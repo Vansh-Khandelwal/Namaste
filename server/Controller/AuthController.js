@@ -6,10 +6,12 @@ import bcrypt from "bcrypt";
 export const registerUser = async(req, res) => {
     const { Username, Password, Firstname, Lastname } = req.body;
 
-    const salt = await bcrypt.genSalt(10) //salt used to hash the password
-    const hashedPass = await bcrypt.hash(Password, salt) //to hash the password so that we can't see the passswords of the users
+    if (Password !== undefined) {
+        const salt = await bcrypt.genSalt(10) //salt used to hash the password
+        const hashedPass = await bcrypt.hash(Password, salt) //to hash the password so that we can't see the passswords of the users
 
-    const newUser = new UserModel({ Username, Password: hashedPass, Firstname, Lastname })
+        const newUser = new UserModel({ Username, Password: hashedPass, Firstname, Lastname })
+    }
 
     try {
         await newUser.save();
