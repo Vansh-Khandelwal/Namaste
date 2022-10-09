@@ -49,3 +49,8 @@
     cursor: pointer;
     background: var(--orange);
 }
+
+.button:disabled {
+    background: silver;
+    pointer-events: none;
+}
