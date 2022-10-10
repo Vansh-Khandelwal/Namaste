@@ -29,7 +29,7 @@ export const registerUser = async(req, res) => {
                     id: user._id
                 }, process.env.JWT_KEY, { expiresIn: '1h' })
 
-                res.status(200).json(user, token);
+                res.status(200).json({ user, token });
             }
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -55,7 +55,7 @@ export const loginUser = async(req, res) => {
                     username: user.Username,
                     id: user._id
                 }, process.env.JWT_KEY, { expiresIn: '1h' })
-                res.status(200).json(user, token)
+                res.status(200).json({ user, token })
             }
 
         } else {
@@ -63,6 +63,6 @@ export const loginUser = async(req, res) => {
         }
 
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json(error);
     }
 }
