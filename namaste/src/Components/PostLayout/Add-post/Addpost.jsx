@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import './Addpost.css'
 import {useDispatch, useSelector} from 'react-redux';
-import {uploadImage} from '../../../Actions/UploadActions/uploadImage.js'
+import {uploadImage, uploadPost} from '../../../Actions/UploadActions/uploadImage.js'
 
 import dp from '../../../images/dp.jpg'
 
@@ -45,6 +45,8 @@ const Addpost = () => {
         } catch (error) {
           console.log(error)
         }
+
+        dispatch(uploadPost(newPost))
 
       }
       // it is advised to use 3rd party application to store files such as images 
