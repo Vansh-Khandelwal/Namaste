@@ -9,6 +9,7 @@ import {MdImage, MdVideocam, MdLocationPin, MdSchedule, MdOutlineCancel} from 'r
 
 const Addpost = () => {
 
+  const loading = useSelector((state)=>state.postReducer.loading)
   const [image, setImage] = useState(null);
   const imageRef = useRef();
   const {user} = useSelector((state)=>state.authReducer.authData)
@@ -22,6 +23,11 @@ const Addpost = () => {
       let img = event.target.files[0];
       setImage(img);
     }
+  }
+
+  const reset = () => {
+      setImage(null);
+      desc.current.value = ""
   }
 
   const handleSubmit = (e) => {
@@ -47,6 +53,7 @@ const Addpost = () => {
         }
 
         dispatch(uploadPost(newPost))
+        reset()
 
       }
       // it is advised to use 3rd party application to store files such as images 
@@ -67,7 +74,9 @@ const Addpost = () => {
             <div className="i video-icon"><MdVideocam/><span>Video</span></div>
             <div className="i location-icon"><MdLocationPin/><span>Location</span></div>
             <div className="i schedule-icon"><MdSchedule/><span>Schedule</span></div>
-            <button className="button" onClick={handleSubmit}>Share</button>
+
+            <button className="button" onClick={handleSubmit}>{loading? "Uploading...": "Share"}</button>
+
             <div style={{display: "none"}}>
               <input type="file" name="MyImage" ref={imageRef} onChange={onImageChange}/>
             </div>
