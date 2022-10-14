@@ -13,11 +13,13 @@ const Posts = () => {
 
   useEffect(() => {
     dispatch(getTimelinePosts(user._id))
-  }, [])
+  })
   
   return (
     <div className="Posts">
       {
+        // console.log(posts)
+        loading ? "Fetching data...":
         posts.map((post, id)=>{
           return(<Post data={post} id={id} key={id}/>)
         })

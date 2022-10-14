@@ -9,7 +9,7 @@ import {MdImage, MdVideocam, MdLocationPin, MdSchedule, MdOutlineCancel} from 'r
 
 const Addpost = () => {
 
-  const loading = useSelector((state)=>state.postReducer.loading)
+  const loading = useSelector((state)=>state.postReducer.uploading)
   const [image, setImage] = useState(null);
   const imageRef = useRef();
   const {user} = useSelector((state)=>state.authReducer.authData)
@@ -75,7 +75,7 @@ const Addpost = () => {
             <div className="i location-icon"><MdLocationPin/><span>Location</span></div>
             <div className="i schedule-icon"><MdSchedule/><span>Schedule</span></div>
 
-            <button className="button" onClick={handleSubmit}>{loading? "Uploading...": "Share"}</button>
+            <button className="button" onClick={handleSubmit} disabled={loading}>{loading? "Uploading...": "Share"}</button>
 
             <div style={{display: "none"}}>
               <input type="file" name="MyImage" ref={imageRef} onChange={onImageChange}/>

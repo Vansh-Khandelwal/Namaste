@@ -3,12 +3,16 @@ import './Post.css'
 
 import {RiHeartFill, RiHeartLine, RiShareForwardLine} from 'react-icons/ri'
 import {FaRegCommentDots} from 'react-icons/fa'
+import { useSelector } from 'react-redux'
 
 const Post = ({data}) => {
+
+  const {user} = useSelector((state)=>state.authReducer.authData)
+
   return (
     <div className="Post">
       
-        <img src={data.img} alt="post_image" className="Post-Image"/>
+        <img src={data.img? process.env.REACT_APP_PUBLIC_FOLDER + data.image : "" } alt="post_image" className="Post-Image"/>
 
         <div className="postReactions">
             {data.liked?<RiHeartFill/>:<RiHeartLine/>}
