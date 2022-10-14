@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Post.css'
 
 import {RiHeartFill, RiHeartLine, RiShareForwardLine} from 'react-icons/ri'
@@ -9,18 +9,21 @@ const Post = ({data}) => {
 
   const {user} = useSelector((state)=>state.authReducer.authData)
 
+  const [liked, setLiked] = useState(data.likes.includes(user._id))
+  const [likes, setLikes] = useState(data.likes.length)
+
   return (
     <div className="Post">
       
         <img src={data.img? process.env.REACT_APP_PUBLIC_FOLDER + data.image : "" } alt="post_image" className="Post-Image"/>
 
         <div className="postReactions">
-            {data.liked?<RiHeartFill/>:<RiHeartLine/>}
+            <div style={{cursor: "pointer"}}>{liked?<RiHeartFill/>:<RiHeartLine/>}</div>
             <FaRegCommentDots/>
             <RiShareForwardLine/>
         </div>
 
-        <span className="post-likes">{data.likes} Likes</span>
+        <span className="post-likes">{likes}Likes</span>
 
         <div className="post-detail">
           <span><b>{data.name}</b></span>
