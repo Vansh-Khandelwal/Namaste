@@ -1,6 +1,7 @@
 const postReducer = (
     state = { posts: [], loading: false, error: false, uploading: false }, action) => {
     switch (action.type) {
+
         // belongs to add-post
         case "UPLOAD_START":
             return {...state, uploading: true, error: false }
@@ -10,11 +11,11 @@ const postReducer = (
             return {...state, uploading: false, error: true }
 
             // belongs to post timeline
-        case "RETREIVING_START":
+        case "RETRIEVING_START":
             return {...state, loading: true, error: false };
-        case "RETREIVING_SUCCESS":
+        case "RETRIEVING_SUCCESS":
             return {...state, posts: action.data, loading: false, error: false };
-        case "RETREIVING_FAIL":
+        case "RETRIEVING_FAIL":
             return {...state, loading: false, error: true };
         default:
             return state

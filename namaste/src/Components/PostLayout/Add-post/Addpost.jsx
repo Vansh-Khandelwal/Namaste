@@ -14,6 +14,8 @@ const Addpost = () => {
   const imageRef = useRef();
   const {user} = useSelector((state)=>state.authReducer.authData)
 
+  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
+
   const  dispatch = useDispatch();
   const desc = useRef();
 
@@ -34,7 +36,7 @@ const Addpost = () => {
       e.preventDefault();
 
       const newPost = {
-        id: user._id,
+        userId: user._id,
         desc: desc.current.value
       }
 
@@ -66,7 +68,7 @@ const Addpost = () => {
   return (
     <div className="Addpost">
         <div className="addpost-input">
-            <img src={dp} alt="" className="addpost-prof-image"/>
+            <img src={user.ProfileImg? serverPublic + user.ProfileImg : serverPublic + 'DefaultProfile.jpg'} alt="" className="addpost-prof-image"/>
             <input type="text" className="addpost-caption" placeholder="What's happening?" ref = {desc} required/>
         </div>
         <div className="addpost-options">
