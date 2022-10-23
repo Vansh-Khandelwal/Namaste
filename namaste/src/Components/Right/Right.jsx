@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './Right.css'
+import {Link} from 'react-router-dom'
 
 import TrendCard  from './TrendCard/TrendCard'
 
@@ -16,10 +17,18 @@ const Right = () => {
   return (
     <div className='right'>
       <div className="navicons">
-        <HiHome/>
-        <IoNotifications/>
-        <FaRegCommentDots/>
-        <RiSettings3Fill/>
+        <Link to = '../home'>
+          <HiHome/>
+        </Link>
+        <Link>   
+          <IoNotifications/>
+        </Link>
+        <Link>
+          <FaRegCommentDots/>
+        </Link>
+        <Link>
+          <RiSettings3Fill/>
+        </Link>
       </div>
 
       <TrendCard/>

@@ -1,5 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 import './Profile_card.css'
 
@@ -17,19 +18,19 @@ const Profile_card = ({ProfilePage}) => {
       </div>
 
       <div className="profile-about">
-        <div className="profile-name">Vansh Khandelwal</div>
-        <div className="profile-description">Full Stack Web Developer</div>
+        <div className="profile-name">{user.Firstname} {user.Lastname}</div>
+        <div className="profile-description">{user.WorksAt? user.WorksAt: "Write About Yourself"}</div>
       </div>
 
       <div className="follow-status">
         <hr />
         <div className='f-status'>
           <div className="statusInfo followers">
-            <span className="num-followers bold">6,235</span>
+            <span className="num-followers bold">{user.Followers.length}</span>
             <span className="gray">Followers</span>
           </div>
           <div className="statusInfo followings">
-            <span className="num-following bold">1223</span>
+            <span className="num-following bold">{user.Following.length}</span>
             <span className="gray">Following</span>
           </div>
 
@@ -49,10 +50,13 @@ const Profile_card = ({ProfilePage}) => {
       </div>
       
       {
-        ProfilePage?'':
-        <div className="profile-link">
-          My Profile
-        </div>
+        ProfilePage? "":
+        
+        <Link to = {`/profile/${user._id}`} style ={{textDecoration: "none"}}>
+          <div className="profile-link">
+            My Profile
+          </div>
+        </Link>
       }
     </div>
   )
