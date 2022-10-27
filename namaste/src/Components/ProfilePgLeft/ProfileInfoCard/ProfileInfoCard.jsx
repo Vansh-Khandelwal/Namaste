@@ -36,6 +36,8 @@ const ProfileInfoCard = () => {
         }
         fetchprofileUser()
     }, [user])
+    // Here if user is not given as dependency the it will render infinite number of times therefore we add user so that it only 
+    // renders when user is changed
 
     const handleLogOut = () => {
         dispatch(logOut())
@@ -53,11 +55,7 @@ const ProfileInfoCard = () => {
                     <ProfileModal openEdit={open} setOpenEdit={setOpen} data = {user} />
                 </div>
                 ): ("")  
-            }
-            {
-                console.log(profileUser)
-            }
-            
+            }      
         </div>
         
         <div className="Info">

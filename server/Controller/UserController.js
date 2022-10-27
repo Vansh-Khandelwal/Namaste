@@ -1,5 +1,6 @@
 import UserModel from "../Models/userModel.js";
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 // getting the user
 
@@ -27,7 +28,7 @@ export const updateUser = async(req, res) => {
     const id = req.params.id
     const { _id, currentUserAdminStatus, Password } = req.body
 
-    if (id === _id || currentUserAdminStatus) {
+    if (id === _id) {
         try {
 
             if (Password) {
@@ -42,7 +43,7 @@ export const updateUser = async(req, res) => {
                 id: user._id
             }, process.env.JWT_KEY, { expiresIn: '1h' })
 
-            res.status(200).json(user)
+            res.status(200).json({ user, token })
         } catch (error) {
             res.status(500).json(error)
         }
