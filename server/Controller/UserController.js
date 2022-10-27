@@ -25,9 +25,9 @@ export const getUser = async(req, res) => {
 
 export const updateUser = async(req, res) => {
     const id = req.params.id
-    const { currentUserId, currentUserAdminStatus, Password } = req.body
+    const { _id, currentUserAdminStatus, Password } = req.body
 
-    if (id === currentUserId || currentUserAdminStatus) {
+    if (id === _id || currentUserAdminStatus) {
         try {
 
             if (Password) {
@@ -36,6 +36,11 @@ export const updateUser = async(req, res) => {
             }
 
             const user = await UserModel.findByIdAndUpdate(id, req.body, { new: true })
+
+            const token = jwt.sign({
+                Username: user.Username,
+                id: user._id
+            }, process.env.JWT_KEY, { expiresIn: '1h' })
 
             res.status(200).json(user)
         } catch (error) {

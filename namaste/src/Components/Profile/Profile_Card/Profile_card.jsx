@@ -47,6 +47,11 @@ const Profile_card = ({ProfilePage}) => {
 
         </div>
         <hr />
+
+        {
+          ProfilePage&&(<div style={{margin: "5px"}}></div>)
+        }
+
       </div>
       
       {
