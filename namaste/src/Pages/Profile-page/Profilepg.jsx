@@ -5,12 +5,12 @@ import ProfilePgLeft from '../../Components/ProfilePgLeft/ProfilePgLeft'
 import Right from '../../Components/Right/Right'
 import './Profilepg.css'
 
-const Profilepg = () => {
+const Profilepg = (ProfilePage) => {
   return (
     <div className="Profile-page">
       <ProfilePgLeft/>
       <div className="Profilepg-center">
-        <Profile_card ProfilePage={false}/>
+        <Profile_card ProfilePage={ProfilePage}/>
         <PostLayout/>
       </div>
       <Right/>

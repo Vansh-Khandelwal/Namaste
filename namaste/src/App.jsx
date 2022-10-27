@@ -17,9 +17,8 @@ function App() {
         <Route path = '/home' element = {user? <Home/>: <Navigate to= '../auth/'/>} />
         {/* ../auth/ removes previous path and append auth/ */}
         <Route path='/auth' element = {user? <Navigate to = '../home/'/>:<Auth/>} />
-        <Route path='/profile/:id' element = {user? <Profilepg/> :<Navigate to = '../auth/'/>} />
+        <Route path='/profile/:id' element = {user? <Profilepg Profilepage = {true}/> :<Navigate to = '../auth/'/>} />
       </Routes>
-      {/* <Profilepg/> */}
     </div>
   );
 }

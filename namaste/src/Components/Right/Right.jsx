@@ -17,16 +17,16 @@ const Right = () => {
   return (
     <div className='right'>
       <div className="navicons">
-        <Link to = '../home'>
+        <Link to = '../home' style={{color: "#ff7b08"}}>
           <HiHome/>
         </Link>
-        <Link>   
+        <Link style={{color: "#ff7b08"}}>   
           <IoNotifications/>
         </Link>
-        <Link>
+        <Link style={{color: "#ff7b08"}}>
           <FaRegCommentDots/>
         </Link>
-        <Link>
+        <Link style={{color: "#ff7b08"}}>
           <RiSettings3Fill/>
         </Link>
       </div>
