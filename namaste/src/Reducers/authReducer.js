@@ -12,6 +12,8 @@ const authReducer = (state = { authData: null, loading: false, error: false }, a
         case "AUTH_FAIL":
             return {...state, loading: false, error: true }
 
+
+
         case "UPDATING_USER":
             return {...state, updateLoading: true, error: false }
 
@@ -21,6 +23,8 @@ const authReducer = (state = { authData: null, loading: false, error: false }, a
 
         case "UPDATE_FAIL":
             return {...state, updateLoading: false, error: true }
+
+
 
         case "LOG_OUT":
             localStorage.clear()

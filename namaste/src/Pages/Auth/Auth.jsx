@@ -68,7 +68,7 @@ const Auth = () => {
     <div className="Auth">
         {/* Left side */}
         <div className="Auth-left">
-            <img src={process.env.PUBLIC_URL+"./logo1.png"} alt="" />
+            <img src={process.env.PUBLIC_URL+"/logo1.png"} alt="" />
             <div className="WebsiteName">
                 <h1>Namaste</h1>
                 <h6>Explore the ideas throught the world</h6>
@@ -98,7 +98,7 @@ const Auth = () => {
                    
                     <span style = {{display : confirmPassword? "none": "block", color : "red", fontSize : "12px", margin : "0"}}>* Confirm Password is not same</span>
                     
-                    <span onClick={() => {setIsSignUp((prev) => !prev); resetForm()}}>{IsSignUp? "Already have an account. Login! ": "Don't have an account. SignUp!"}</span>
+                    <span onClick={() => {setIsSignUp((prev) => !prev); resetForm()}}>{IsSignUp? <span>Already have an account. <b>Log In!</b></span> : <span>Don't have an account. <b>Sign Up!</b></span>}</span>
 
                     <button className="button info-btn" type='submit' disabled = {loading}>
                         {loading? "loading": IsSignUp? "Sign Up": "Log In"}

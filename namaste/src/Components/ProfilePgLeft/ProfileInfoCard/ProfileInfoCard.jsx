@@ -23,7 +23,7 @@ const ProfileInfoCard = () => {
     const {user} = useSelector((state) => state.authReducer.authData)
 
     useEffect(()=>{
-        const fetchprofileUser = async() =>{
+        const fetchprofileUser = async() => {
             if(profileUserId === user._id)
             {
                 setProfileUser(user)
@@ -35,7 +35,7 @@ const ProfileInfoCard = () => {
             }
         }
         fetchprofileUser()
-    }, [user])
+    }, [user, profileUserId])
     // Here if user is not given as dependency the it will render infinite number of times therefore we add user so that it only 
     // renders when user is changed
 
@@ -54,8 +54,8 @@ const ProfileInfoCard = () => {
                     <MdEdit style={{"fontSize": "1.2rem"}} onClick={()=>setOpen(true)} />
                     <ProfileModal openEdit={open} setOpenEdit={setOpen} data = {user} />
                 </div>
-                ): ("")  
-            }      
+                ): ("")
+            }    
         </div>
         
         <div className="Info">
