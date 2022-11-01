@@ -35,7 +35,6 @@ const Auth = () => {
         {
             if (data.Password === data.cpassword)
             {
-                console.log(data)
                 dispatch(signUp(data))
             }
 

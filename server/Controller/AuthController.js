@@ -6,6 +6,8 @@ import jwt from "jsonwebtoken";
 
 export const registerUser = async(req, res) => {
 
+    const { Password } = req.body
+
     if (Password !== undefined) {
         const salt = await bcrypt.genSalt(10) //salt used to hash the password
         const hashedPass = await bcrypt.hash(req.body.Password, salt) //to hash the password so that we can't see the passswords of the users

@@ -1,8 +1,8 @@
 import React from 'react'
 import './Following.css'
-import { followers } from '../../../Data/following.js'
+// import { followers } from '../../../Data/following.js'
 
-import { UserFollow } from '../UserFollow/UserFollow.jsx'
+import { UserFollow } from './UserFollow/UserFollow.jsx'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { getAllUser } from '../../../Api/UserRequest.js'
@@ -16,7 +16,6 @@ const Following = () => {
       const fetchpersons = async() => {
         const {data} = await getAllUser();
         setPersons(data)
-        console.log(data)
       }
       fetchpersons()
   }, [])
@@ -24,26 +23,22 @@ const Following = () => {
 
   return (
     <div className="following">
-      <div className="following-title">Who is following you</div>
+      <div className="following-title">People you might know</div>
       <div className="following-list">
       {
-        followers.map((follower, id)=>{
-          return(
-            <UserFollow person = {follower} key = {id} />
-          )
+        persons.map((follower, id)=>{
+          if(follower._id !== user._id)
+          {
+            return(
+              <UserFollow person = {follower} key = {id} />
+            )
+          }
+          else
+          {
+            return null
+          }
         })
       }
-        {/* <div className="follower-line">
-          <div className="prof-about">
-            <img src={dp} alt="" className="prof-image"/>
-            <span>
-              <div className="prof-name">Hi</div>
-              <div className="prof-tag">@hi</div>
-            </span>
-          </div>
-          <div className="follow-button">Follow</div>
-        </div> */}
-
       </div>
     </div>
   )

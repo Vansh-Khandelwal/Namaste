@@ -25,6 +25,13 @@ const authReducer = (state = { authData: null, loading: false, error: false }, a
             return {...state, updateLoading: false, error: true }
 
 
+        case "FOLLOW_USER":
+            return {...state, authData: {...state.authData, user: {...state.authData.user, following: [...state.authData.user.Following, action.data] } } }
+
+        case "UNFOLLOW_USER":
+            return {...state, authData: {...state.authData, user: {...state.authData.user, following: [...state.authData.user.Following.filter((personId) => personId !== action.data)] } } }
+
+
 
         case "LOG_OUT":
             localStorage.clear()
