@@ -1,5 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import { useParams } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 
 import './Profile_card.css'
@@ -7,6 +8,14 @@ import './Profile_card.css'
 const Profile_card = ({ProfilePage}) => {
 
   const {user} = useSelector((state) => state.authReducer.authData)
+  let {posts} = useSelector((state) => state.postReducer)
+
+  const params = useParams()
+
+  if (params.id)
+  {
+    posts = posts.filter((post=>post.userId === params.id))
+  }
 
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
 
@@ -38,7 +47,7 @@ const Profile_card = ({ProfilePage}) => {
             ProfilePage&&(
               <>
               <div className="statusInfo posts">
-                <span className="num-posts bold">3</span>
+                <span className="num-posts bold">{posts.length}</span>
                 <span className="gray">Posts</span>
               </div>
               </>

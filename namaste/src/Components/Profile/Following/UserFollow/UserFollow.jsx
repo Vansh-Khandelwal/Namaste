@@ -11,7 +11,7 @@ export const UserFollow = ({person}) => {
     
     const {user} = useSelector((state)=>state.authReducer.authData)
 
-    const [following, setFollowing] = useState(person.Following.includes(user._id))
+    const [following, setFollowing] = useState(person.Followers.includes(user._id))
 
     const handleFollow = () => {
         following? dispatch(unfollowUser(person._id, user)):
