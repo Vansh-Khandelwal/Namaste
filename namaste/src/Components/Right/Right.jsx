@@ -6,8 +6,7 @@ import TrendCard  from './TrendCard/TrendCard'
 
 import {HiHome} from 'react-icons/hi'
 import {IoNotifications} from 'react-icons/io5'
-import {FaRegCommentDots} from 'react-icons/fa'
-import {RiSettings3Fill} from 'react-icons/ri'
+import {RiSettings3Fill, RiChatSmile2Fill} from 'react-icons/ri'
 import ShareModal from './ShareModal/ShareModal'
 
 const Right = () => {
@@ -23,8 +22,8 @@ const Right = () => {
         <Link style={{color: "#ff7b08"}}>   
           <IoNotifications/>
         </Link>
-        <Link style={{color: "#ff7b08"}}>
-          <FaRegCommentDots/>
+        <Link to = '../chat' style={{color: "#ff7b08"}}>
+          <RiChatSmile2Fill/>
         </Link>
         <Link style={{color: "#ff7b08"}}>
           <RiSettings3Fill/>

@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home';
 import Profilepg from './Pages/Profile-page/Profilepg';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Chat } from './Pages/Chat/Chat';
 
 function App() {
   const user = useSelector((state)=>state.authReducer.authData)
@@ -18,6 +19,7 @@ function App() {
         {/* ../auth/ removes previous path and append auth/ */}
         <Route path='/auth' element = {user? <Navigate to = '../home/'/>:<Auth/>} />
         <Route path='/profile/:id' element = {user? <Profilepg Profilepage = {true}/> :<Navigate to = '../auth/'/>} />
+        <Route path='/chat' element = {user? <Chat/>: <Navigate to = '../auth/'/>} />
       </Routes>
     </div>
   );
