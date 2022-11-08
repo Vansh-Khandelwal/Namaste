@@ -5,7 +5,10 @@ import { useSelector } from 'react-redux'
 
 import { userChats } from '../../Api/ChatRequest.js'
 import Conversation from '../../Components/Conversation/Conversation.jsx'
-import Search from '../../Components/Profile/Search/Search'
+import Navicons from '../../Components/Navicons/Navicons.jsx'
+
+import ChatBox from '../../Components/ChatBox/ChatBox.jsx'
+import Search from '../../Components/Profile/Search/Search.jsx'
 import './Chat.css'
 
 export const Chat = () => {
@@ -13,6 +16,7 @@ export const Chat = () => {
     const {user} = useSelector((state)=>state.authReducer.authData)
 
     const [chats, setChats] = useState([])
+    const [currentChat, setCurrentChat] = useState(null)
 
     useEffect(()=> {
         const getChats = async() => {
@@ -39,7 +43,7 @@ export const Chat = () => {
                     <h2>Chats</h2>
                     <div className="Chat-list">
                         {chats.map((chat, id)=>(
-                            <div key={id}>
+                            <div key={id} onClick={()=>setCurrentChat(chat)}>
                                 <Conversation data={chat} currentUserId={user._id} />
                             </div>
                         ))}
@@ -49,7 +53,12 @@ export const Chat = () => {
 
             {/* Right side */}
             <div className="Right-side-chat">
-
+                <div style={{width: "20rem", alignSelf: "flex-end"}}>
+                    <Navicons/>
+                </div>
+                
+                <ChatBox chat={currentChat} currentUser={user._id} />
+                
             </div>
         </div>
     )

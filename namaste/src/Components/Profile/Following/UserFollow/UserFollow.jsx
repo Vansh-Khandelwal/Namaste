@@ -24,11 +24,11 @@ export const UserFollow = ({person}) => {
     return (
         <div className="follower-line">
             <div className="prof-about">
-            <img src={person.ProfileImg? serverPublic + person.ProfileImg : serverPublic + 'DefaultProfile.jpg'} alt="" className="prof-image"/>
-            <span>
-                <div className="prof-name">{person.Firstname}</div>
-                <div className="prof-tag">{person.Username}</div>
-            </span>
+                <img src={person.ProfileImg? serverPublic + person.ProfileImg : serverPublic + 'DefaultProfile.jpg'} alt="" className="prof-image"/>
+                <span>
+                    <div className="prof-name">{person.Firstname}</div>
+                    <div className="prof-tag">{person.Username}</div>
+                </span>
             </div>
             <button className={following?"unfollow-button": "follow-button"} onClick={handleFollow}>{following? "Unfollow": "Follow"}</button>
         </div>
