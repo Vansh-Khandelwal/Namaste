@@ -1,6 +1,5 @@
 import ChatModel from "../Models/chatModel.js";
 
-
 // Create a chat
 
 export const createChat = async(req, res) => {
@@ -41,6 +40,7 @@ export const findChat = async(req, res) => {
             members: { $all: [req.params.firstId, req.params.secondId] }
         })
         res.status(200).json(chat)
+
     } catch (error) {
         res.status(500).json(error)
     }

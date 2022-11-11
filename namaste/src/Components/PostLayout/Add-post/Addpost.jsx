@@ -3,8 +3,6 @@ import './Addpost.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {uploadImage, uploadPost} from '../../../Actions/UploadActions/uploadImage.js'
 
-import dp from '../../../images/dp.jpg'
-
 import {MdImage, MdVideocam, MdLocationPin, MdSchedule, MdOutlineCancel} from 'react-icons/md'
 
 const Addpost = () => {

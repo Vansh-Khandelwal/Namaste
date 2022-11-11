@@ -7,6 +7,7 @@
     gap: 1rem;
     background-color: var(--cardColor);
     border-radius: 1rem;
+    box-sizing: content-box;
 }
 
 .Post img {
@@ -14,7 +15,7 @@
     max-height: 40rem;
     object-fit: cover;
     border-radius: 0.5rem;
-    /* background-color: rgb(149, 143, 143); */
+    background-color: rgb(149, 143, 143);
 }
 
 .postReactions {

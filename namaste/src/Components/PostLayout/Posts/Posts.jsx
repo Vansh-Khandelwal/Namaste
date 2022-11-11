@@ -10,13 +10,13 @@ const Posts = () => {
 
   const dispatch = useDispatch()
   const params = useParams()
+  
+  const {user} =  useSelector((state)=> state.authReducer.authData)
+  let {posts, loading} = useSelector((state)=> state.postReducer)
 
   useEffect(() => {
     dispatch(getTimeline(user._id))
-  },[])
-
-  const {user} =  useSelector((state)=> state.authReducer.authData)
-  let {posts, loading} = useSelector((state)=> state.postReducer)
+  },[user, dispatch])
 
   if (!posts)
   {
@@ -25,8 +25,10 @@ const Posts = () => {
 
   if (params.id)
   {
-    posts = posts.filter((post=> post.userId === params.id))
+    posts = posts.filter((post)=> post.userId === params.id)
   }
+
+  console.log(posts)
 
   return (
     <div className="Posts">
