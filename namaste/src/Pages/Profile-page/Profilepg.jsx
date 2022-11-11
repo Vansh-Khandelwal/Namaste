@@ -1,8 +1,8 @@
 import React from 'react'
-import PostLayout from '../../Components/PostLayout/PostLayout'
-import Profile_card from '../../Components/Profile/Profile_Card/Profile_card'
-import ProfilePgLeft from '../../Components/ProfilePgLeft/ProfilePgLeft'
-import Right from '../../Components/Right/Right'
+import PostLayout from '../../Components/PostLayout/PostLayout.jsx'
+import Profile_card from '../../Components/Profile/Profile_Card/Profile_card.jsx'
+import ProfilePgLeft from '../../Components/ProfilePgLeft/ProfilePgLeft.jsx'
+import Right from '../../Components/Right/Right.jsx'
 import './Profilepg.css'
 
 const Profilepg = (ProfilePage) => {

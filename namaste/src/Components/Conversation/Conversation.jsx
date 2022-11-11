@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import {getUser} from '../../Api/UserRequest.js'
 
-const Conversation = ({data, currentUserId}) => {
+const Conversation = ({data, currentUserId, online}) => {
 
     const [userData, setUserData] = useState(null)
 
@@ -23,19 +23,20 @@ const Conversation = ({data, currentUserId}) => {
 
         }
         getUserData()
-    }, [])
+    }, [data, currentUserId])
 
     return (
         <>
             <div className="conversation">
                 <div>
-                    <div className="online-dot"></div>
+                    {online && <div className="online-dot"></div>}
+
                     <img src={userData?.ProfileImg? 
                         process.env.REACT_APP_PUBLIC_FOLDER + userData.ProfileImg:
                         process.env.REACT_APP_PUBLIC_FOLDER + 'DefaultProfile.jpg' } alt="" className="prof-image" style={{width: '50px', height: '50px'}}/>
                     <div className="chat-name" style={{fonstSize: "0.8rem"}}>
                         <span className="prof-name">{userData?.Firstname} {userData?.Lastname}</span>
-                        <span>Online</span>
+                        <span>{online? "Online": "Offline"}</span>
                     </div>
                 </div>
             </div>

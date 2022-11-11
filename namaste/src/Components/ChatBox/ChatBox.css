@@ -81,3 +81,9 @@
     height: 70%;
     padding: 0px 15px 0px 15px;
 }
+
+.send-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

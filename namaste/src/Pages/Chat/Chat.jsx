@@ -11,19 +11,50 @@ import ChatBox from '../../Components/ChatBox/ChatBox.jsx'
 import Search from '../../Components/Profile/Search/Search.jsx'
 import './Chat.css'
 
+import {io} from 'socket.io-client'
+import { useRef } from 'react'
+
 export const Chat = () => {
 
     const {user} = useSelector((state)=>state.authReducer.authData)
 
     const [chats, setChats] = useState([])
     const [currentChat, setCurrentChat] = useState(null)
+    const [onlineUsers, setOnlineUsers] = useState([])
+    const [sendMessage, setSendMessage] = useState(null)
+    const [recieveMessage, setRecieveMessage] = useState()
 
+    const socket = useRef()
+
+    // Socket initialization
+    useEffect(() => {
+        socket.current = io('http://localhost:8800')
+        socket.current.emit('new-user-add', user._id)
+        socket.current.on('get-users', (users)=> {
+            setOnlineUsers(users)
+        })
+    }, [user])
+
+    // send message to socket server
+    useEffect(() => {
+        if(sendMessage!==null)
+        {
+            socket.current.emit('send-message', sendMessage)
+        }
+    },[sendMessage])
+
+    // recieve message from socket serevr
     useEffect(()=> {
+        socket.current.on('recieve-message', (data)=>{
+            setRecieveMessage(data)
+        })
+    })
+
+    useEffect(() => {
         const getChats = async() => {
             try {
                 const {data} = await userChats(user._id)
                 setChats(data)
-                console.log(data)
                 
             } catch (error) {
                 console.log(error)
@@ -32,6 +63,13 @@ export const Chat = () => {
 
         getChats()
     }, [user])
+
+    const checkOnlineStatus = (chat) => {
+
+        const chatMember = chat.members.find((member)=>member!==user._id)
+        const online = onlineUsers.find((user)=> user.userId === chatMember)
+        return online? true: false
+    }
 
     return (
         <div className="Chat">
@@ -44,7 +82,7 @@ export const Chat = () => {
                     <div className="Chat-list">
                         {chats.map((chat, id)=>(
                             <div key={id} onClick={()=>setCurrentChat(chat)}>
-                                <Conversation data={chat} currentUserId={user._id} />
+                                <Conversation data={chat} currentUserId={user._id} online = {checkOnlineStatus(chat)} />
                             </div>
                         ))}
                     </div>
@@ -57,7 +95,7 @@ export const Chat = () => {
                     <Navicons/>
                 </div>
                 
-                <ChatBox chat={currentChat} currentUser={user._id} />
+                <ChatBox chat={currentChat} currentUser={user._id} setSendMessage ={setSendMessage} recievedMessage = {recieveMessage} />
                 
             </div>
         </div>
