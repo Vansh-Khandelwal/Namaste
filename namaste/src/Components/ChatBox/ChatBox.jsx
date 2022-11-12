@@ -13,19 +13,21 @@ import { getMessages, addMessage } from '../../Api/MessageRequest.js'
 import './ChatBox.css'
 import { useRef } from 'react'
 
-const ChatBox = ({chat, currentUser, setSendMessage, recieveMessage}) => {
+const ChatBox = ({chat, currentUser, setSendMessage, recievedMessage}) => {
 
     const [userData, setUserData] = useState(null)
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
+
     const scroll = useRef()
+    const imageRef = useRef()
 
     useEffect(()=> {
-        if(recieveMessage!==null && recieveMessage.chatId === chat._id)
+        if(recievedMessage!==null && recievedMessage.chatId === chat._id)
         {
-            setMessages([...messages, recieveMessage])
+            setMessages([...messages, recievedMessage])
         }
-    }, [recieveMessage, chat._id, messages])
+    }, [recievedMessage])
 
     useEffect(()=>{
 
@@ -60,7 +62,7 @@ const ChatBox = ({chat, currentUser, setSendMessage, recieveMessage}) => {
 
         if(chat!==null)
         {fetchMessages()}
-    },[chat, messages])
+    },[chat])
 
     const handleChange = (newMessage) => {
         setNewMessage(newMessage)
@@ -120,21 +122,20 @@ const ChatBox = ({chat, currentUser, setSendMessage, recieveMessage}) => {
 
                                 <div className="chat-body">
                                     {messages.map((message, id)=>(
-                                        <>
-                                            <div ref={scroll} className={message.senderId === currentUser? "message own": "message"}>
-                                                <span>{message.text}</span>
-                                                <span>{format(message.createdAt)}</span>
-                                            </div>
-                                        </>
+                                        <div ref={scroll} className={message.senderId === currentUser? "message own": "message"}key={id}>
+                                            <span>{message.text}</span>
+                                            <span>{format(message.createdAt)}</span>
+                                        </div>
                                     ))}
                                 </div>
 
                                 {/* Char sender */}
 
                                 <div className="chat-sender">
-                                    <div>+</div>
+                                    <div onClick={()=>imageRef.current.click()}>+</div>
                                     <InputEmoji value = {newMessage} onChange = {handleChange} />
-                                    <div className="button send-button" onClick={handleSend} >Send</div>
+                                    <div className="button send-button" onClick={handleSend}>Send</div>
+                                    <input type="file" name="" id="" style={{display: "none"}} ref={imageRef} />
                                 </div>
 
                             </div>

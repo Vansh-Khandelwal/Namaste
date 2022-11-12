@@ -22,7 +22,7 @@ export const Chat = () => {
     const [currentChat, setCurrentChat] = useState(null)
     const [onlineUsers, setOnlineUsers] = useState([])
     const [sendMessage, setSendMessage] = useState(null)
-    const [recieveMessage, setRecieveMessage] = useState()
+    const [recieveMessage, setRecieveMessage] = useState(null)
 
     const socket = useRef()
 

@@ -32,7 +32,7 @@ io.on("connection", (socket) => {
     socket.on('send-message', (data) => {
 
         const { recieverId } = data
-        const user = activeUsers.find((user) => user.socketId !== recieverId)
+        const user = activeUsers.find((user) => user.userId === recieverId)
 
         if (user) {
             io.to(user.socketId).emit('recieve-message', data)
