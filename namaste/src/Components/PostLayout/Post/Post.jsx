@@ -24,7 +24,7 @@ const Post = ({data}) => {
   return (
     <div className="Post">
       
-        <img src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : "" } className="Post-Image"/>
+        <img src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : "" } alt="post of a user" className="Post-Image"/>
 
         <div className="postReactions">
             <div style={{cursor: "pointer"}} onClick = {handleLike}>{liked?<RiHeartFill/>:<RiHeartLine/>}</div>
