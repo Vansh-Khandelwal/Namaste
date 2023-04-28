@@ -95,7 +95,7 @@ export const Chat = () => {
                     <Navicons/>
                 </div>
                 
-                <ChatBox chat={currentChat} currentUser={user._id} setSendMessage ={setSendMessage} recievedMessage = {recieveMessage} />
+                {currentChat?<ChatBox chat={currentChat} currentUser={user._id} setSendMessage ={setSendMessage} recievedMessage = {recieveMessage} />:<></>}
                 
             </div>
         </div>
