@@ -1,6 +1,4 @@
-import axios from 'axios'
-
-const API = axios.create({ baseURL: "https://namaste-yzsb.onrender.com" })
+import { API } from "./API.js"
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {

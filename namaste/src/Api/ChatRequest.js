@@ -1,5 +1,3 @@
-import axios from "axios";
-
-const API = axios.create({ baseURL: "https://namaste-yzsb.onrender.com" })
+import { API } from "./API.js"
 
 export const userChats = (id) => API.get(`/chat/${id}`)
