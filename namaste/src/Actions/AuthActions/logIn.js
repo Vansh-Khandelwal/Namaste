@@ -6,11 +6,7 @@ export const logIn = (formData) => async(dispatch) => {
         // We are telling our reducer that auth has been started
 
     try {
-        console.log("Hi")
-
         const { data } = await AuthApi.login(formData)
-        console.log("Hi")
-
         console.log(data)
         dispatch({ type: "AUTH_SUCCESS", data: data })
     } catch (error) {
