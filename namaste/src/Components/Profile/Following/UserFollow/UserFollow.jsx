@@ -18,7 +18,7 @@ export const UserFollow = ({person}) => {
         dispatch(followUser(person._id, user))
 
         setFollowing((prev)=>!prev)
-        console.log(user.Following)
+        // console.log(user.Following)
     }
 
     return (

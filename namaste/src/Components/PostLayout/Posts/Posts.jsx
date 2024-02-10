@@ -28,7 +28,7 @@ const Posts = () => {
     posts = posts.filter((post)=> post.userId === params.id)
   }
 
-  console.log(posts)
+  // console.log(posts)
 
   return (
     <div className="Posts">

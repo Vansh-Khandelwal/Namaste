@@ -4,6 +4,7 @@
     --black: #242d49;
     --gray: rgba(36, 45, 73, 0.65);
     --profileshadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.25);
+    --searchshadow: 0px 1px 5px 1px rgba(114, 114, 114, 0.25);
     --hrColor: #cfcdcd;
     --cardColor: rgba(255, 255, 255, 0.64);
     --buttonBg: linear-gradient(98.63deg, #f9a225, #f95f35 100%);
@@ -19,10 +20,11 @@
 }
 
 .App {
-    padding: 1rem 1rem;
+    padding: 0.5rem;
     color: var(--black);
     background-color: var(--appColor);
     scrollbar-width: 0px;
+    overflow-x: hidden;
 }
 
 .circle {

@@ -1,7 +1,13 @@
 .logo-search {
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
+    position: fixed;
+    background-color: white;
+    z-index: 50;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: var(--searchshadow);
 }
 
 .logo-search input {

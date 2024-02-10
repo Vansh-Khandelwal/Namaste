@@ -8,9 +8,9 @@ import Right from '../../Components/Right/Right'
 const Home = () => {
   return (
     <div className='home'>
-        <Profile ProfilePage={false}/>
-        <PostLayout/>
-        <Right/>
+      <Profile ProfilePage={false} />
+      <PostLayout />
+      <Right />
     </div>
   )
 }

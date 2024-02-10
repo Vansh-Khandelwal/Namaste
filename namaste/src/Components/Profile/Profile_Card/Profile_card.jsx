@@ -20,7 +20,7 @@ const Profile_card = ({ProfilePage}) => {
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
 
   return (
-    <div className='profile-card'>
+    <div className='profile-card' style={ProfilePage ? { marginTop: 0 } : {}}>
       <div className="profile-images">
         <img src={user.CoverImg? serverPublic + user.CoverImg : serverPublic + 'DefaultCover.png'} alt="cover_image"/>
         <img src={user.ProfileImg? serverPublic + user.ProfileImg : serverPublic + 'DefaultProfile.jpg'} alt="display_image"/>

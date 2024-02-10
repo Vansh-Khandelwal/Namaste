@@ -88,3 +88,16 @@
     object-fit: cover;
     border-radius: 0.5rem;
 }
+
+@media (max-width: 450px) {
+    .i span {
+        /* display: none; */
+        font-size: 8px;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1080px) {
+    .i span {
+        font-size: 10px;
+    }
+}
