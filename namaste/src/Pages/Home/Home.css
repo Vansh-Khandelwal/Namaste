@@ -5,3 +5,16 @@
     gap: 0.6rem;
     height: 95vh;
 }
+
+@media (max-width: 1000px) {
+    .home {
+        grid-template-columns: auto;
+        margin-top: 7rem;
+    }
+    .home .profile {
+        display: none;
+    }
+    .home .right {
+        display: none;
+    }
+}

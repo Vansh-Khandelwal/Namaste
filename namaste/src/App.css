@@ -56,3 +56,13 @@
     background: silver;
     pointer-events: none;
 }
+
+.App::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .App::-webkit-scrollbar {
+        display: none;
+    }
+}

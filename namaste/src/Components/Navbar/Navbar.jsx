@@ -1,37 +1,56 @@
 import React from 'react'
-import ProfilePgLeft from '../ProfilePgLeft/ProfilePgLeft'
+import { Link } from 'react-router-dom'
+
+import { CgProfile } from "react-icons/cg";
+import { RiSettings3Fill } from 'react-icons/ri'
+
 import './Navbar.css'
+
+import Search from '../Profile/Search/Search'
+import ProfileInfoCard from '../ProfilePgLeft/ProfileInfoCard/ProfileInfoCard'
+import ProfileCard from '../Profile/Profile_Card/Profile_Card'
+import Following from '../Profile/Following/Following'
+import TrendCard from '../Right/TrendCard/TrendCard'
 
 const Navbar = () => {
     return (
-        <nav class="navbar">
-            <div class="navbar-container container">
-                <input type="checkbox" name="" id="nav-items" />
-                <div class="hamburger-lines">
-                    <span class="line line1"></span>
-                    <span class="line line2"></span>
-                    <span class="line line3"></span>
-                </div>
-                <ul class="menu-items">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                </ul>
+        <>
+            <nav className="navbar">
+                <div className="full-page-gray"></div>
+                <div className="navbar-container container">
 
-                <h1 class="logo">Navbar</h1>
 
-                <input type="checkbox" name="info" id="nav-info" defaultChecked />
-                <div className="info-prof">
-                    <div class="hl">
-                        <span class="line l1"></span>
-                        <span class="line l2"></span>
-                        <span class="line l3"></span>
-                    </div>
+                    <input type="checkbox" name="info" id="nav-info" defaultChecked />
+                    <label for="nav-info">
+                        <CgProfile style={{ color: "#ff7b08", width: "100%", height: "100%" }} />
+                    </label>
+
                     <div className="info-mat">
-                        <ProfilePgLeft />
+                        <ProfileCard />
+                        <ProfileInfoCard />
                     </div>
-                </div>
+
+                    <h1 className="logo">
+                        <Link to='../home' style={{ color: "#ff7b08" }}>
+                            <img src={process.env.PUBLIC_URL + "/logo1.png"} alt="logo" className='logo' />
+                        </Link>
+                        Namaste
+                    </h1>
+
+                    <input type="checkbox" name="trend-following" id="nav-trend-following" defaultChecked />
+                    <label for="nav-trend-following">
+                        <RiSettings3Fill style={{ color: "#ff7b08", width: "100%", height: "100%" }} />
+                    </label>
+
+                    <div className="trend-following">
+                        <Search />
+                        <TrendCard />
+                        <Following />
+                    </div>
+
             </div>
         </nav>
+        </>
     )
 }
 

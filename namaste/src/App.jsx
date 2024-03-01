@@ -6,13 +6,11 @@ import Profilepg from './Pages/Profile-page/Profilepg';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Chat } from './Pages/Chat/Chat';
-import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   const user = useSelector((state)=>state.authReducer.authData)
   return (
     <>
-      {/* <Navbar /> */}
       <div className="App">
         <div className="circle" style={{ top: '-18%', right: '0' }}></div>
         <div className="circle" style={{ top: '36%', left: '-8rem' }}></div>

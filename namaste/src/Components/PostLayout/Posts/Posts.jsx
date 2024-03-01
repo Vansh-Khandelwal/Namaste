@@ -16,7 +16,7 @@ const Posts = () => {
 
   useEffect(() => {
     dispatch(getTimeline(user._id))
-  },[user, dispatch])
+  }, [user, dispatch])
 
   if (!posts)
   {

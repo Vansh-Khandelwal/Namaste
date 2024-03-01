@@ -17,10 +17,10 @@ const ProfileInfoCard = () => {
     const dispatch = useDispatch()
     const params = useParams()
 
-    const profileUserId = params.id
-    const [profileUser, setProfileUser] = useState({})
-
     const {user} = useSelector((state) => state.authReducer.authData)
+
+    const profileUserId = params.id ? params.id : user._id
+    const [profileUser, setProfileUser] = useState({})
 
     useEffect(()=>{
         const fetchprofileUser = async() => {

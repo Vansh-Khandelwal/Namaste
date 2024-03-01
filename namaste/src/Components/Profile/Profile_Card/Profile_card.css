@@ -100,3 +100,9 @@
     align-self: center;
     padding: 1rem 0rem;
 }
+
+@media (max-width: 1000px) {
+    .profile-card {
+        box-shadow: var(--searchshadow);
+    }
+}

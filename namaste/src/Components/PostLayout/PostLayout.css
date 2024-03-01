@@ -10,6 +10,6 @@
 
 @media (max-width: 1000px) {
     .postslayout {
-        width: 95vw;
+        width: 100%;
     }
 }

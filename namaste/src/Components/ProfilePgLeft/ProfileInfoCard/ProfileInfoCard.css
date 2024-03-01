@@ -24,3 +24,10 @@
     width: 100%;
     margin-top: 1rem;
 }
+
+@media (max-width: 1000px) {
+    .ProfileInfoCard {
+        margin-top: 1rem;
+        box-shadow: var(--searchshadow);
+    }
+}
