@@ -69,7 +69,8 @@ label[for="nav-trend-following"] {
     border-radius: 15px;
 }
 
-.full-page-gray {
+
+/* .full-page-gray {
     position: fixed;
     top: 0;
     left: 0;
@@ -81,7 +82,7 @@ label[for="nav-trend-following"] {
     transition: opacity 500ms ease-in-out;
     display: block;
     visibility: visible;
-}
+} */
 
 #nav-info:checked~.full-page-gray {
     opacity: 0;
