@@ -15,3 +15,16 @@
 .Profilepg-center::-webkit-scrollbar {
     display: none;
 }
+
+@media (max-width: 1000px) {
+    .Profile-page {
+        grid-template-columns: auto;
+        margin-top: 7rem;
+    }
+    .ProfilePg-left {
+        display: none;
+    }
+    .right {
+        display: none;
+    }
+}

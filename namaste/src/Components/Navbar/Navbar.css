@@ -151,13 +151,21 @@ label[for="nav-trend-following"] {
         display: block;
     }
     .profile-card {
-        margin-top: 12rem;
+        margin-top: 16rem;
     }
     .TrendCard {
         box-shadow: var(--searchshadow);
     }
     .logo-search {
-        margin-top: 18rem;
+        margin-top: 17rem;
         position: relative;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        font-size: large;
+        display: flex;
+        align-items: center;
     }
 }

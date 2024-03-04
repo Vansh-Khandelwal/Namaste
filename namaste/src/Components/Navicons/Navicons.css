@@ -1,0 +1,9 @@
+.alert-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: rgb(182, 182, 238);
+    border: solid 1px rgb(99, 99, 235);
+    padding: 1rem;
+}

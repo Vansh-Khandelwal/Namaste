@@ -57,8 +57,9 @@
 .SignUpForm div {
     display: flex;
     gap: 1rem;
-    height: 2rem;
+    height: max-content;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .signup-info {
@@ -79,3 +80,9 @@
 .info-btn {
     margin-left: 1rem;
 }
+
+
+/* 
+@media (max-width: 1000px) {
+    .
+} */

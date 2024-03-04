@@ -105,4 +105,8 @@
     .profile-card {
         box-shadow: var(--searchshadow);
     }
+    /* .profile-link {
+        display: none;
+        visibility: hidden;
+    } */
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../../Components/Navbar/Navbar.jsx'
 import PostLayout from '../../Components/PostLayout/PostLayout.jsx'
 import ProfileCard from '../../Components/Profile/Profile_Card/Profile_Card.jsx'
 import ProfilePgLeft from '../../Components/ProfilePgLeft/ProfilePgLeft.jsx'
@@ -7,6 +8,8 @@ import './Profilepg.css'
 
 const Profilepg = (ProfilePage) => {
   return (
+    <>
+      <Navbar />
     <div className="Profile-page">
       <ProfilePgLeft/>
       <div className="Profilepg-center">
@@ -15,6 +18,7 @@ const Profilepg = (ProfilePage) => {
       </div>
       <Right/>
     </div>
+    </>
   )
 }
 

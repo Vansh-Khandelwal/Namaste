@@ -12,6 +12,8 @@ import ProfileCard from '../Profile/Profile_Card/Profile_Card'
 import Following from '../Profile/Following/Following'
 import TrendCard from '../Right/TrendCard/TrendCard'
 
+import Navicons from '../Navicons/Navicons'
+
 const Navbar = () => {
     return (
         <>
@@ -21,12 +23,13 @@ const Navbar = () => {
 
 
                     <input type="checkbox" name="info" id="nav-info" defaultChecked />
-                    <label for="nav-info">
+                    <label htmlFor="nav-info">
                         <CgProfile style={{ color: "#ff7b08", width: "100%", height: "100%" }} />
                     </label>
 
                     <div className="info-mat">
                         <ProfileCard />
+                        <Navicons />
                         <ProfileInfoCard />
                     </div>
 
@@ -38,7 +41,7 @@ const Navbar = () => {
                     </h1>
 
                     <input type="checkbox" name="trend-following" id="nav-trend-following" defaultChecked />
-                    <label for="nav-trend-following">
+                    <label htmlFor="nav-trend-following">
                         <RiSettings3Fill style={{ color: "#ff7b08", width: "100%", height: "100%" }} />
                     </label>
 
