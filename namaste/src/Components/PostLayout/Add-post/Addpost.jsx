@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {uploadImage, uploadPost} from '../../../Actions/UploadActions/uploadImage.js'
 
 import {MdImage, MdVideocam, MdLocationPin, MdSchedule, MdOutlineCancel} from 'react-icons/md'
+import { getTimeline } from '../../../Actions/PostActions/postActions';
 
 const Addpost = () => {
 
@@ -53,14 +54,14 @@ const Addpost = () => {
         }
 
         dispatch(uploadPost(newPost))
+        // Added when post timeline was not rerendering after adding a post and was throwing an error
+        dispatch(getTimeline(user._id))
         reset()
 
       }
-      // it is advised to use 3rd party application to store files such as images 
+      // it is advised to use 3rd party application to store files such as images
       // 3rd party apps can be AWS, Firebase etc.
       // Here we are using local storage to store those files
-
-
   }
 
   return (
