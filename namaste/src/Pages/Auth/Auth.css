@@ -81,8 +81,23 @@
     margin-left: 1rem;
 }
 
-
-/* 
 @media (max-width: 1000px) {
-    .
-} */
+    .Auth {
+        flex-direction: column;
+    }
+    .Auth-right {
+        width: 80%;
+    }
+}
+
+@media (max-width: 680px) {
+    .Auth-left {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .WebsiteName {
+        /* display: none; */
+        text-align: center;
+    }
+}
