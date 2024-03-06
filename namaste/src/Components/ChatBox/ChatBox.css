@@ -1,8 +1,15 @@
 .ChatBox-container {
     background: var(--cardColor);
     border-radius: 1rem;
-    display: grid;
-    grid-template-rows: 14vh 60vh 13vh;
+    height: 90vh;
+    /* display: grid;
+    grid-template-rows: 14vh 60vh 13vh; */
+}
+
+.Chatbox {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .chat-header {
@@ -16,8 +23,12 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 1.5rem;
-    height: 52vh;
-    overflow: scroll;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.chat-body::-webkit-scrollbar {
+    display: none;
 }
 
 .message {
@@ -50,7 +61,8 @@
     justify-content: space-between;
     height: 3.5rem;
     align-items: center;
-    gap: 1rem;
+    gap: 10px;
+    width: 98%;
     padding: 0.8rem;
     border-radius: 1rem;
     align-self: end;
@@ -74,12 +86,12 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    cursor: pointer
+    cursor: pointer;
+    padding: 0px 15px;
 }
 
 .chat-sender>div {
     height: 70%;
-    padding: 0px 15px 0px 15px;
 }
 
 .send-button {

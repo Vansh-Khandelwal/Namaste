@@ -105,39 +105,35 @@ const ChatBox = ({chat, currentUser, setSendMessage, recievedMessage}) => {
             <div className="ChatBox-container">
                 { chat? (
                     <>
-                        <div className="chat-header">
-                            <div className="Chatbox">
+                        <div className="Chatbox">
+                            <div className="chat-header">
+                                <img src={userData?.ProfileImg ?
+                                    process.env.REACT_APP_PUBLIC_FOLDER + userData.ProfileImg :
+                                    process.env.REACT_APP_PUBLIC_FOLDER + 'DefaultProfile.jpg'} alt="" className='prof-image' style={{ width: '50px', height: '50px' }} />
+                                <div className="chat-name" style={{ fonstSize: "0.8rem" }}>
+                                    <span className="prof-name">{userData?.Firstname} {userData?.Lastname}</span>
+                                </div>
+                                <hr style={{ width: "85%", border: "0.1px solid #ececec" }} />
+                            </div>
 
-                                <div>
-                                    <img src={userData?.ProfileImg? 
-                                        process.env.REACT_APP_PUBLIC_FOLDER + userData.ProfileImg:
-                                        process.env.REACT_APP_PUBLIC_FOLDER + 'DefaultProfile.jpg' } alt="" className='prof-image' style={{width: '50px', height: '50px'}}/>
-                                    <div className="chat-name" style={{fonstSize: "0.8rem"}}>
-                                        <span className="prof-name">{userData?.Firstname} {userData?.Lastname}</span>
+                            {/* Messages */}
+
+                            <div className="chat-body">
+                                {messages.map((message, id) => (
+                                    <div ref={scroll} className={message.senderId === currentUser ? "message own" : "message"} key={id}>
+                                        <span>{message.text}</span>
+                                        <span>{format(message.createdAt)}</span>
                                     </div>
-                                </div>
-                                <hr style={{width: "85%", border: "0.1px solid #ececec"}}/>
+                                ))}
+                            </div>
 
-                                {/* Messages */}
+                            {/* Char sender */}
 
-                                <div className="chat-body">
-                                    {messages.map((message, id)=>(
-                                        <div ref={scroll} className={message.senderId === currentUser? "message own": "message"}key={id}>
-                                            <span>{message.text}</span>
-                                            <span>{format(message.createdAt)}</span>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* Char sender */}
-
-                                <div className="chat-sender">
-                                    <div onClick={()=>imageRef.current.click()}>+</div>
-                                    <InputEmoji value = {newMessage} onChange = {handleChange} />
-                                    <div className="button send-button" onClick={handleSend}>Send</div>
-                                    <input type="file" name="" id="" style={{display: "none"}} ref={imageRef} />
-                                </div>
-
+                            <div className="chat-sender">
+                                <div onClick={() => imageRef.current.click()}>+</div>
+                                <InputEmoji value={newMessage} onChange={handleChange} />
+                                <div className="button send-button" onClick={handleSend}>Send</div>
+                                <input type="file" name="" id="" style={{ display: "none" }} ref={imageRef} />
                             </div>
                         </div>
                     </>

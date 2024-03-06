@@ -8,7 +8,6 @@ import Conversation from '../../Components/Conversation/Conversation.jsx'
 import Navicons from '../../Components/Navicons/Navicons.jsx'
 
 import ChatBox from '../../Components/ChatBox/ChatBox.jsx'
-import Search from '../../Components/Profile/Search/Search.jsx'
 import './Chat.css'
 
 import {io} from 'socket.io-client'
@@ -76,7 +75,6 @@ export const Chat = () => {
 
             {/* Left Side */}
             <div className="Left-side-chat">
-                <Search/>
                 <div className="Chat-container">
                     <h2>Chats</h2>
                     <div className="Chat-list">

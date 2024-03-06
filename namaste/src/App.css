@@ -25,6 +25,7 @@
     background-color: var(--appColor);
     scrollbar-width: 0px;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .circle {
