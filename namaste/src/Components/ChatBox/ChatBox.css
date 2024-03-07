@@ -23,7 +23,7 @@
     flex-direction: column;
     gap: 0.5rem;
     padding: 1.5rem;
-    height: 100%;
+    height: 98%;
     overflow-y: scroll;
 }
 

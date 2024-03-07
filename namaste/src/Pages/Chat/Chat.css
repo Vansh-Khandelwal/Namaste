@@ -79,7 +79,20 @@
     .Chat {
         grid-template-columns: 16% auto;
     }
-    .follower.conversation>div>.name {
-        display: none;
+    .conversation div {
+        /* display: flex; */
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .Chat {
+        display: flex;
+        flex-direction: column;
+    }
+    .Chat-list {
+        flex-direction: row;
+        overflow-x: scroll;
+        overflow-y: hidden;
     }
 }
