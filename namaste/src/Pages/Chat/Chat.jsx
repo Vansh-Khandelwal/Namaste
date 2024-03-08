@@ -89,7 +89,7 @@ export const Chat = () => {
 
             {/* Right side */}
             <div className="Right-side-chat">
-                <div style={{width: "20rem", alignSelf: "flex-end"}}>
+                <div style={{ width: "20rem", alignSelf: "flex-end" }} className="chat-navicons">
                     <Navicons/>
                 </div>
                 
