@@ -76,7 +76,12 @@
 }
 
 .chat-navicons {
-    width: max-content;
+    align-self: flex-end;
+    width: 20rem;
+}
+
+.chat-navicons-small {
+    display: none;
 }
 
 @media screen and (max-width: 768px) {
@@ -98,5 +103,11 @@
         flex-direction: row;
         overflow-x: scroll;
         overflow-y: hidden;
+    }
+    .chat-navicons {
+        display: none;
+    }
+    .chat-navicons-small {
+        display: flex;
     }
 }

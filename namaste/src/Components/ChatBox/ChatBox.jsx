@@ -79,7 +79,6 @@ const ChatBox = ({chat, currentUser, setSendMessage, recievedMessage}) => {
 
         // send message to database
         try {
-
             const {data} = await addMessage(message)
             setMessages([...messages, data])
             setNewMessage("")

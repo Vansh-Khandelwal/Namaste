@@ -138,7 +138,7 @@ export const unfollowUser = async(req, res) => {
                 await followingUser.updateOne({ $pull: { Following: id } })
                 res.status(200).json("User Unfollowed!")
             } else {
-                res.status(403).json("User is already followed by you")
+                res.status(403).json("User is already unfollowed by you")
             }
 
         } catch (error) {

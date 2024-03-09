@@ -73,6 +73,10 @@ export const Chat = () => {
     return (
         <div className="Chat">
 
+            <div className="chat-navicons-small">
+                <Navicons />
+            </div>
+
             {/* Left Side */}
             <div className="Left-side-chat">
                 <div className="Chat-container">
@@ -89,7 +93,7 @@ export const Chat = () => {
 
             {/* Right side */}
             <div className="Right-side-chat">
-                <div style={{ width: "20rem", alignSelf: "flex-end" }} className="chat-navicons">
+                <div className="chat-navicons">
                     <Navicons/>
                 </div>
                 

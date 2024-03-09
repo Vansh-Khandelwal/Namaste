@@ -3,6 +3,7 @@ import { followUser, unfollowUser } from '../../../../Actions/UserActions/follow
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
+import { createChat } from '../../../../Actions/UserActions/chatAction.js'
 
 export const UserFollow = ({person}) => {
 
@@ -14,8 +15,12 @@ export const UserFollow = ({person}) => {
     const [following, setFollowing] = useState(person.Followers.includes(user._id))
 
     const handleFollow = () => {
-        following? dispatch(unfollowUser(person._id, user)):
-        dispatch(followUser(person._id, user))
+        if (following) {
+            dispatch(unfollowUser(person._id, user))
+        } else {
+            dispatch(followUser(person._id, user));
+            dispatch(createChat(user, person._id));
+        }
 
         setFollowing((prev)=>!prev)
         // console.log(user.Following)
