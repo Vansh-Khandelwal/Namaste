@@ -5,3 +5,6 @@ export const createChat = (senderId, recieverId) => API.post(`chat/`, {
     "senderId": senderId,
     "recieverId": recieverId
 })
+export const deleteChat = (chatId) => API.delete(`chat/`, {
+    "chatId": chatId
+})

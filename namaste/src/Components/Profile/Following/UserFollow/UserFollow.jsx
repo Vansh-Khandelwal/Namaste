@@ -16,14 +16,14 @@ export const UserFollow = ({person}) => {
 
     const handleFollow = () => {
         if (following) {
-            dispatch(unfollowUser(person._id, user))
+            dispatch(unfollowUser(person._id, user));
         } else {
             dispatch(followUser(person._id, user));
-            dispatch(createChat(user, person._id));
+            dispatch(createChat(user._id, person._id));
         }
 
         setFollowing((prev)=>!prev)
-        // console.log(user.Following)
+        // console.log(user.Following, person)
     }
 
     return (

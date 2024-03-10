@@ -45,3 +45,14 @@ export const findChat = async(req, res) => {
         res.status(500).json(error)
     }
 }
+
+// Delete the chat with a person 
+
+export const deleteChat = async(req, res) => {
+    try {
+        const delChat = await ChatModel.deleteOne({ _id: req.body.chatId })
+        res.status(200).json(delChat)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+}
