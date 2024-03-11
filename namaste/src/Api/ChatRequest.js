@@ -8,3 +8,4 @@ export const createChat = (senderId, recieverId) => API.post(`chat/`, {
 export const deleteChat = (chatId) => API.delete(`chat/`, {
     "chatId": chatId
 })
+export const findChat = (member1, member2) => API.get(`chat/find/${member1}/${member2}`)

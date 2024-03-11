@@ -3,7 +3,7 @@ import { followUser, unfollowUser } from '../../../../Actions/UserActions/follow
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
-import { createChat } from '../../../../Actions/UserActions/chatAction.js'
+import { createChat, findChat } from '../../../../Actions/UserActions/chatAction.js'
 
 export const UserFollow = ({person}) => {
 
@@ -19,7 +19,14 @@ export const UserFollow = ({person}) => {
             dispatch(unfollowUser(person._id, user));
         } else {
             dispatch(followUser(person._id, user));
-            dispatch(createChat(user._id, person._id));
+            dispatch(findChat(person._id, user._id)).then((res) => {
+                if (res.data) {
+                    console.log("Chat already present")
+                } else {
+                    dispatch(createChat(user._id, person._id))
+                    console.log("Chat created")
+                }
+            })
         }
 
         setFollowing((prev)=>!prev)
