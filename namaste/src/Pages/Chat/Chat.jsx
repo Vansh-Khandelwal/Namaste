@@ -49,22 +49,20 @@ export const Chat = () => {
         })
     })
 
+    // fetch messages from backend
     useEffect(() => {
         const getChats = async() => {
             try {
                 const {data} = await userChats(user._id)
                 setChats(data)
-                
             } catch (error) {
                 console.log(error)
             }
         }
-
         getChats()
     }, [user])
 
     const checkOnlineStatus = (chat) => {
-
         const chatMember = chat.members.find((member)=>member!==user._id)
         const online = onlineUsers.find((user)=> user.userId === chatMember)
         return online? true: false
