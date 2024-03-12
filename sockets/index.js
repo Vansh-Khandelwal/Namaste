@@ -24,11 +24,9 @@ io.on("connection", (socket) => {
 
         // we write emit when we have to give something to other side
         io.emit('get-users', activeUsers)
-
     })
 
     // send message 
-
     socket.on('send-message', (data) => {
 
         const { recieverId } = data
@@ -40,9 +38,7 @@ io.on("connection", (socket) => {
     })
 
     socket.on('disconnect', () => {
-
         activeUsers = activeUsers.filter((user) => user.socketId !== socket.id)
         io.emit('get-users', activeUsers)
-
     })
 })

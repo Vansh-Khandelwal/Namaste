@@ -42,7 +42,7 @@ export const Chat = () => {
         }
     },[sendMessage])
 
-    // recieve message from socket serevr
+    // recieve message from socket server
     useEffect(()=> {
         socket.current.on('recieve-message', (data)=>{
             setRecieveMessage(data)
