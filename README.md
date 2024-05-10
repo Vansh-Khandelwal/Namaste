@@ -47,3 +47,4 @@ https://namastevansh.netlify.app/auth/
 ## Improvements
 
 -> Multi Image Posts (Carousel)
+-> Edit and Delete Post options
