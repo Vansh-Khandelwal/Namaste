@@ -2,7 +2,7 @@
 
 *It is a social media website made on the MERN stack with full implementation of CRUD operations and a chat feature made with use of sockets.io*
 
-https://namastevansh.netlify.app/auth/
+https://namaaste.netlify.app/auth/
 
 
 **Sign Up  Page**
