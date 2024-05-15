@@ -31,9 +31,7 @@ const Conversation = ({data, currentUserId, online}) => {
                 <div>
                     {online && <div className="online-dot"></div>}
 
-                    <img src={userData?.ProfileImg? 
-                        process.env.REACT_APP_PUBLIC_FOLDER + userData.ProfileImg:
-                        process.env.REACT_APP_PUBLIC_FOLDER + 'DefaultProfile.jpg' } alt="" className="prof-image" style={{width: '50px', height: '50px'}}/>
+                    <img src={userData?.ProfileImg && userData.ProfileImg.url ? userData.ProfileImg.url : 'https://res.cloudinary.com/drvbnhsxg/image/upload/v1714810023/profile/DefaultProfile_o4oqbk.jpg'} alt="" className="prof-image" style={{ width: '50px', height: '50px' }} />
                     <div className="chat-name" style={{fonstSize: "0.8rem"}}>
                         <span className="prof-name">{userData?.Firstname} {userData?.Lastname}</span>
                         <span>{online? "Online": "Offline"}</span>

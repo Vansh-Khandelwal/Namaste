@@ -4,22 +4,29 @@ import './Following.css'
 
 import { UserFollow } from './UserFollow/UserFollow.jsx'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { getAllUser } from '../../../Api/UserRequest.js'
 
-const Following = () => {
+const Following = ({ user }) => {
 
   const [persons, setPersons] = useState([])
-  const {user} = useSelector((state)=> state.authReducer.authData)
+  // const {user} = useSelector((state)=> state.authReducer.authData)
 
   useEffect(() => {
       const fetchpersons = async() => {
         const {data} = await getAllUser();
+
+        // Filter the User Id
+        data.filter(function (item) {
+          // console.log(user)
+          return item._id !== user?._id
+        })
+
         setPersons(data)
       }
       fetchpersons()
-  }, [])
-  
+  }, [user])
+
 
   return (
     <div className="following">
@@ -27,7 +34,7 @@ const Following = () => {
       <div className="following-list">
       {
         persons.map((follower, id)=>{
-          if(follower._id !== user._id)
+          if (follower._id !== user?._id)
           {
             return(
               <UserFollow person = {follower} key = {id} />

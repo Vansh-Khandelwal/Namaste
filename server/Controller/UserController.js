@@ -1,6 +1,7 @@
 import UserModel from "../Models/userModel.js";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import cloudinary from "cloudinary";
 
 // get all the users
 
@@ -47,12 +48,72 @@ export const updateUser = async(req, res) => {
 
     if (id === _id) {
         try {
-
             if (Password) {
                 const salt = await bcrypt.genSalt(10);
                 req.body.Password = await bcrypt.hash(Password, salt)
             }
 
+            // Image Changes (ProfileImg/CoverImg) ------------------------------------------
+            // Adding images making its url and id --> Cloudinary
+
+            // ProfileImg ----------------------
+            if (req.body.ProfileImg && typeof(req.body.ProfileImg) === "string") {
+                let image = "";
+
+                image = req.body.ProfileImg;
+                // console.log(req.body.ProfileImg);
+
+                // Deleting Image
+                const user = await UserModel.findById(_id);
+
+                if (user.ProfileImg.public_id) {
+                    const delImg = await cloudinary.v2.uploader.destroy(user.ProfileImg.public_id);
+                }
+
+                const result_prof = await cloudinary.v2.uploader.upload(image, {
+                    folder: "profile",
+                });
+
+                req.body.ProfileImg = {
+                    public_id: result_prof.public_id,
+                    url: result_prof.secure_url,
+                };
+            } else {
+                const user = await UserModel.findById(_id);
+                req.body.ProfileImg = user.ProfileImg
+            }
+
+            // CoverImg -----------------------
+            if (req.body.CoverImg && typeof(req.body.CoverImg) === "string") {
+                let image = "";
+
+                image = req.body.CoverImg;
+                // console.log(req.body.CoverImg)
+
+                const user = await UserModel.findById(_id);
+
+                // console.log(user.CoverImg)
+                if (user.CoverImg.public_id) {
+                    const delImg = await cloudinary.v2.uploader.destroy(user.CoverImg.public_id);
+                }
+
+                const result_cov = await cloudinary.v2.uploader.upload(image, {
+                    folder: "cover",
+                });
+
+                // console.log(req.body)
+
+                req.body.CoverImg = {
+                    public_id: result_cov.public_id,
+                    url: result_cov.secure_url,
+                };
+            } else {
+                const user = await UserModel.findById(_id);
+                req.body.CoverImg = user.CoverImg
+            }
+
+            // console.log(req.body)
+            // Updating user ----------------------------------------------------------
             const user = await UserModel.findByIdAndUpdate(id, req.body, { new: true })
 
             const token = jwt.sign({
@@ -60,7 +121,9 @@ export const updateUser = async(req, res) => {
                 id: user._id
             }, process.env.JWT_KEY, { expiresIn: '1h' })
 
+            // Don't Touch the format correlates to the frontend states
             res.status(200).json({ user, token })
+
         } catch (error) {
             res.status(500).json(error)
         }
@@ -96,6 +159,8 @@ export const followUser = async(req, res) => {
     const id = req.params.id //id of user to be followed
     const { _id } = req.body
 
+    // console.log(id, _id)
+
     if (id === _id) {
         res.status(403).json("Action forbidden")
     } else {
@@ -120,10 +185,11 @@ export const followUser = async(req, res) => {
 
 // unfollow a user
 
-
 export const unfollowUser = async(req, res) => {
     const id = req.params.id //id of user to be followed
     const { _id } = req.body
+
+    // console.log(id, _id)
 
     if (id === _id) {
         res.status(403).json("Action forbidden")

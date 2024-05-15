@@ -7,7 +7,7 @@ import { createChat, findChat } from '../../../../Actions/UserActions/chatAction
 
 export const UserFollow = ({person}) => {
 
-    const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
+    // const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
     const dispatch = useDispatch()
     
     const {user} = useSelector((state)=>state.authReducer.authData)
@@ -33,10 +33,12 @@ export const UserFollow = ({person}) => {
         // console.log(user.Following, person)
     }
 
+    // console.log(person)
+
     return (
         <div className="follower-line">
             <div className="prof-about">
-                <img src={person.ProfileImg? serverPublic + person.ProfileImg : serverPublic + 'DefaultProfile.jpg'} alt="" className="prof-image"/>
+                <img src={person.ProfileImg && person.ProfileImg.url ? person.ProfileImg.url : 'https://res.cloudinary.com/drvbnhsxg/image/upload/v1714810023/profile/DefaultProfile_o4oqbk.jpg'} alt="" className="prof-image" />
                 <span>
                     <div className="prof-name">{person.Firstname}</div>
                     <div className="prof-tag">{person.Username}</div>

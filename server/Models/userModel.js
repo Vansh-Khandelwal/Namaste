@@ -21,8 +21,22 @@ const UserSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    ProfileImg: String,
-    CoverImg: String,
+    ProfileImg: {
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        }
+    },
+    CoverImg: {
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        }
+    },
     About: String,
     Relationship_Status: String,
     Country: String,

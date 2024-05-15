@@ -1,0 +1,83 @@
+.spinner {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    border-radius: 100%;
+    overflow: hidden;
+    left: calc(50% - (200px));
+    transform: scale(0.5);
+    top: 50px;
+}
+
+.mask {
+    width: 320px;
+    height: 320px;
+    background: var(--appColor);
+    border-radius: 100%;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.color {
+    width: 400px;
+    height: 400px;
+    animation: spin 2.25s ease infinite;
+    -webkit-animation: spin 2.25s ease infinite;
+    transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+    border-radius: 100%;
+    background: linear-gradient(var(--orange) 1%, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.spinner:before,
+.spinner:after {
+    content: " ";
+    z-index: 100;
+    display: block;
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 100% 50%;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    height: 400px;
+}
+
+.spinner:before {
+    animation: spin 2.25s ease infinite;
+    -webkit-animation: spin 2.25s ease infinite;
+    animation-delay: 0.5625s;
+    -webkit-animation-delay: 0.5625s;
+    transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+}
+
+.spinner:after {
+    animation: offsetSpin 2.25s ease infinite;
+    -webkit-animation: offsetSpin 2.25s ease infinite;
+    transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes offsetSpin {
+    from {
+        -webkit-transform: rotate(180deg);
+    }
+    to {
+        -webkit-transform: rotate(540deg);
+    }
+}

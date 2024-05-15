@@ -6,17 +6,17 @@ import {useParams} from 'react-router-dom'
 import { useEffect } from 'react'
 import { getTimeline } from '../../../Actions/PostActions/postActions.js'
 
-const Posts = () => {
+const Posts = ({ user, setVisible }) => {
 
   const dispatch = useDispatch()
   const params = useParams()
   
-  const {user} =  useSelector((state)=> state.authReducer.authData)
+  // const {user} =  useSelector((state)=> state.authReducer.authData)
   let {posts, loading} = useSelector((state)=> state.postReducer)
 
   useEffect(() => {
     dispatch(getTimeline(user._id))
-  }, [user, dispatch])
+  }, [user, dispatch, user.Following])
 
   if (!posts)
   {
@@ -36,7 +36,7 @@ const Posts = () => {
         // console.log(posts)
         loading ? "Fetching data...":
         posts.map((post, id)=>{
-          return(<Post data={post} id={id} key={id}/>)
+          return (<Post data={post} id={id} key={id} setVisible={setVisible} />)
         })
       }
     </div>

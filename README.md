@@ -44,7 +44,14 @@ https://namastevansh.netlify.app/auth/
 
 ![image](https://user-images.githubusercontent.com/82869137/207814454-9e9bf2df-dd96-462a-bcae-bd89a4bbdbd9.png)
 
-## Improvements
+## Improvements:
 
 -> Multi Image Posts (Carousel)
 -> Edit and Delete Post options
+-> Profile Search Option
+-> Add footer to connect/contact to developer for any improvements
+
+## Bugs:
+
+Error: GET http://localhost:8800/socket.io/?EIO=4&transport=polling&t=OzxBfxn net::ERR_CONNECTION_REFUSED <br />
+Whenever exits from chat page

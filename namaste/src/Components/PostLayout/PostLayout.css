@@ -8,6 +8,20 @@
     overflow: hidden;
 }
 
+.alert-info-post {
+    position: absolute;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    top: 1rem;
+    background: rgb(182, 182, 238);
+    border: solid 1px rgb(99, 99, 235);
+    padding: 1rem;
+    z-index: 100;
+}
+
 @media (max-width: 1000px) {
     .postslayout {
         width: 100%;

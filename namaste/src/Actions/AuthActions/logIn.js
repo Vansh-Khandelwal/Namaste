@@ -28,3 +28,8 @@ export const signUp = (formData) => async(dispatch) => {
         dispatch({ type: "AUTH_FAIL" })
     }
 }
+
+// Error Refresh
+export const refresh = () => async(dispatch) => {
+    dispatch({ type: "REFRESH" })
+}

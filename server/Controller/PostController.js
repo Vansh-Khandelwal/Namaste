@@ -1,5 +1,7 @@
-import PostModel from "../Models/postModel.js"
 import bcrypt from "bcrypt"
+import cloudinary from "cloudinary"
+
+import PostModel from "../Models/postModel.js"
 import mongoose from "mongoose"
 import UserModel from "../Models/userModel.js"
 
@@ -7,13 +9,35 @@ import UserModel from "../Models/userModel.js"
 
 export const createPost = async(req, res) => {
 
+    // Adding images making its url and id --> Cloudinary
+    let images = [];
+
+    if (typeof(req.body.images) === "string") {
+        images.push(req.body.images);
+    } else {
+        images = req.body.images;
+    }
+    // console.log(req.body.images)
+    const imagesLinks = [];
+
+    for (let i = 0; i < images.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+            folder: "posts",
+        });
+
+        imagesLinks.push({
+            public_id: result.public_id,
+            url: result.secure_url,
+        });
+    }
+
+    req.body.images = imagesLinks;
+
     const newPost = new PostModel(req.body)
 
     try {
-
         await newPost.save()
-        res.status(200).json("Post Created!")
-
+        res.status(200).json(newPost)
     } catch (error) {
         res.status(500).json(error)
     }

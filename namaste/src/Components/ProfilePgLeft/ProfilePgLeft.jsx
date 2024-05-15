@@ -4,12 +4,12 @@ import Search from '../Profile/Search/Search'
 import ProfileInfoCard from './ProfileInfoCard/ProfileInfoCard'
 import './ProfilePgLeft.css'
 
-const ProfilePgLeft = () => {
+const ProfilePgLeft = ({ user }) => {
   return (
     <div className="ProfilePg-left">
-        <Search/>
-        <ProfileInfoCard/>
-        <Following/>
+      <Search />
+      <ProfileInfoCard user={user} />
+      <Following user={user} />
     </div>
   )
 }

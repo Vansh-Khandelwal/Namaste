@@ -10,26 +10,23 @@ import { logOut } from '../../../Actions/AuthActions/logOut.js'
 import {MdEdit} from 'react-icons/md'
 import { useEffect } from 'react'
 
-const ProfileInfoCard = () => {
+const ProfileInfoCard = ({ user }) => {
 
     const [open, setOpen] = useState(false)
 
     const dispatch = useDispatch()
     const params = useParams()
 
-    const {user} = useSelector((state) => state.authReducer.authData)
+    // const { user } = useSelector((state) => state.authReducer.authData)
 
-    const profileUserId = params.id ? params.id : user._id
+    const profileUserId = params.id ? params.id : user?._id
     const [profileUser, setProfileUser] = useState({})
 
     useEffect(()=>{
         const fetchprofileUser = async() => {
-            if(profileUserId === user._id)
-            {
+            if (profileUserId === user?._id) {
                 setProfileUser(user)
-            }
-            else
-            {
+            } else {
                 const profile = await UserApi.getUser(profileUserId)
                 setProfileUser(profile)
             }
@@ -44,38 +41,39 @@ const ProfileInfoCard = () => {
     }
 
   return (
-    <div className="ProfileInfoCard">
+      <div className="ProfileInfoCard">
 
-        <div className="Info-head">
-            <h3>Profile Info:</h3>
-            { 
-                user._id === profileUserId ? (
-                <div>
-                    <MdEdit style={{"fontSize": "1.2rem"}} onClick={()=>setOpen(true)} />
-                    <ProfileModal openEdit={open} setOpenEdit={setOpen} data = {user} />
-                </div>
-                ): ("")
-            }    
-        </div>
-        
-        <div className="Info">
-            <span><b>Status</b> </span>
-            <span>{profileUser.Relationship_Status}</span>
-        </div>
+          <div className="Info-head">
+              <h3>Profile Info:</h3>
+              {
+                  user ?
+                      user._id === profileUserId ? (
+                          <div>
+                              <MdEdit style={{ "fontSize": "1.2rem" }} onClick={() => setOpen(true)} />
+                              <ProfileModal openEdit={open} setOpenEdit={setOpen} data={user} />
+                          </div>
+                      ) : ("") : ("")
+              }
+          </div>
 
-        <div className="Info">
-            <span><b>Lives in</b> </span>
-            <span>{profileUser.LivesIn}</span>
-        </div>
+          <div className="Info">
+              <span><b>Status</b> </span>
+              <span>{profileUser?.Relationship_Status}</span>
+          </div>
 
-        <div className="Info">
-            <span><b>Works at/Study in</b> </span>
-            <span>{profileUser.WorksAt}</span>
-        </div>
+          <div className="Info">
+              <span><b>Lives in</b> </span>
+              <span>{profileUser?.LivesIn}</span>
+          </div>
 
-        <button className="button logout-btn" onClick={handleLogOut}>Log out</button>
+          <div className="Info">
+              <span><b>Works at/Study in</b> </span>
+              <span>{profileUser?.WorksAt}</span>
+          </div>
 
-    </div>
+          <button className="button logout-btn" onClick={handleLogOut}>Log out</button>
+
+      </div>
   )
 }
 
