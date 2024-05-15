@@ -46,10 +46,11 @@ https://namastevansh.netlify.app/auth/
 
 ## Improvements:
 
--> Multi Image Posts (Carousel)
--> Edit and Delete Post options
--> Profile Search Option
--> Add footer to connect/contact to developer for any improvements
+-> Multi Image Posts (Carousel) <br />
+-> Edit and Delete Post options <br />
+-> Profile Search Option <br />
+-> Add footer to connect/contact to developer for any improvements <br />
+-> Improve Responsiveness(Mobile View a little distorted)
 
 ## Bugs:
 
