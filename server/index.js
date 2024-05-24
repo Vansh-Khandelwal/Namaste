@@ -27,12 +27,10 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 
 // CORS configuration
-const corsOptions = {
-    origin: 'https://namaaste.netlify.app', // Allow only this origin
-    optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-app.use(cors(corsOptions));
+app.use("*", cors({
+    origin: true, //included origin as true
+    credentials: true, //included credentials as true
+}));
 
 dotenv.config()
 
