@@ -12,17 +12,14 @@ import UploadRoute from "./Routes/UploadRoute.js";
 import ChatRoute from "./Routes/ChatRoute.js";
 import MessageRoute from "./Routes/MessageRoute.js";
 
-// CORS configuration
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true, //access-control-allow-credentials:true
-    optionSuccessStatus: 200
-}
-
 // Server Initialization
 const app = express();
 
-app.use(cors(corsOptions));
+// CORS configuration
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}));
 
 // To serve images for public
 

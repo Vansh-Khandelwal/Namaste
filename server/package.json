@@ -7,7 +7,7 @@
     "scripts": {
         "start": "nodemon index.js"
     },
-    "author": "",
+    "author": "Vansh Khandelwal",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.1.0",
