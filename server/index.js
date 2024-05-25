@@ -49,7 +49,10 @@ cloudinary.config({
 app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
 
-app.options('/posts', cors())
+app.options('/posts', cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}))
 
 app.use('/posts', PostRoute)
 app.use('/upload', UploadRoute)
