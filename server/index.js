@@ -2,7 +2,6 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cors from "cors";
 import cloudinary from "cloudinary";
 
 import AuthRoute from "./Routes/AuthRoute.js";
@@ -12,8 +11,17 @@ import UploadRoute from "./Routes/UploadRoute.js";
 import ChatRoute from "./Routes/ChatRoute.js";
 import MessageRoute from "./Routes/MessageRoute.js";
 
-// Routes
+const cors = require('cors');
 
+// CORS configuration
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+}
+app.use(cors(corsOptions));
+
+// Server Initialization
 const app = express();
 
 // To serve images for public
@@ -25,14 +33,6 @@ const app = express();
 // Middleware
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
-
-// CORS configuration
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true, //access-control-allow-credentials:true
-    optionSuccessStatus: 200
-}
-app.use(cors(corsOptions));
 
 dotenv.config()
 
@@ -49,7 +49,6 @@ cloudinary.config({
 })
 
 // Usage of routes
-
 app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
 app.use('/posts', PostRoute)
