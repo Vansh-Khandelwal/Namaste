@@ -34,14 +34,11 @@ const Following = ({ user }) => {
       <div className="following-list">
       {
         persons.map((follower, id)=>{
-          if (follower._id !== user?._id)
-          {
+          if (follower._id !== user?._id) {
             return(
               <UserFollow person = {follower} key = {id} />
             )
-          }
-          else
-          {
+          } else {
             return null
           }
         })

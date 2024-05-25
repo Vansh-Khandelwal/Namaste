@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './ProfileInfoCard.css'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {useParams} from 'react-router-dom'
 
 import ProfileModal from '../ProfileModal/ProfileModal.jsx'
