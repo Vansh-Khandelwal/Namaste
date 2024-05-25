@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cloudinary from "cloudinary";
+import cors from "cors";
 
 import AuthRoute from "./Routes/AuthRoute.js";
 import UserRoute from "./Routes/UserRoute.js";
@@ -11,18 +12,17 @@ import UploadRoute from "./Routes/UploadRoute.js";
 import ChatRoute from "./Routes/ChatRoute.js";
 import MessageRoute from "./Routes/MessageRoute.js";
 
-const cors = require('cors');
-
 // CORS configuration
 const corsOptions = {
     origin: 'http://localhost:3000',
     credentials: true, //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
-app.use(cors(corsOptions));
 
 // Server Initialization
 const app = express();
+
+app.use(cors(corsOptions));
 
 // To serve images for public
 
