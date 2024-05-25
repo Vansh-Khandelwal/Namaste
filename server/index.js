@@ -48,6 +48,9 @@ cloudinary.config({
 // Usage of routes
 app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
+
+app.options('/posts', cors())
+
 app.use('/posts', PostRoute)
 app.use('/upload', UploadRoute)
 app.use('/chat', ChatRoute)
