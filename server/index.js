@@ -16,6 +16,7 @@ import MessageRoute from "./Routes/MessageRoute.js";
 const app = express();
 
 // CORS configuration
+// For Cors Error
 app.use(cors({
     origin: "http://localhost:3000",
     credentials: true
