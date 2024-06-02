@@ -50,6 +50,7 @@ cloudinary.config({
 app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
 
+// Cors error for post
 app.options('/posts', cors({
     origin: "http://localhost:3000",
     credentials: true
