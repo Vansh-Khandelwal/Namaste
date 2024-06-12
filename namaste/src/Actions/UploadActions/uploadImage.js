@@ -4,8 +4,9 @@ export const uploadPost = (data) => async(dispatch) => {
     dispatch({ type: "UPLOAD_START" })
 
     try {
+        // console.log(data)
         const newPost = await UploadApi.uploadPost(data)
-        console.log(newPost)
+            // console.log(newPost)
         dispatch({ type: "UPLOAD_SUCCESSFULL", data: newPost.data })
             // reducer dispatches
     } catch (error) {

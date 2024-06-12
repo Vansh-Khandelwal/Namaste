@@ -8,7 +8,7 @@ import cors from "cors";
 import AuthRoute from "./Routes/AuthRoute.js";
 import UserRoute from "./Routes/UserRoute.js";
 import PostRoute from "./Routes/PostRoute.js";
-import UploadRoute from "./Routes/UploadRoute.js";
+// import UploadRoute from "./Routes/UploadRoute.js";
 import ChatRoute from "./Routes/ChatRoute.js";
 import MessageRoute from "./Routes/MessageRoute.js";
 
@@ -57,7 +57,10 @@ app.options('/posts', cors({
 }))
 
 app.use('/posts', PostRoute)
-app.use('/upload', UploadRoute)
+
+// This route was for storing post in system store using multer instead over a server
+// app.use('/upload', UploadRoute)
+
 app.use('/chat', ChatRoute)
 app.use('/message', MessageRoute)
 

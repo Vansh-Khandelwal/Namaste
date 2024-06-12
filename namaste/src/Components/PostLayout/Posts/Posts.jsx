@@ -6,13 +6,15 @@ import {useParams} from 'react-router-dom'
 import { useEffect } from 'react'
 import { getTimeline } from '../../../Actions/PostActions/postActions.js'
 
+import Loading from "../../Loading.jsx"
+
 const Posts = ({ user, setVisible }) => {
 
   const dispatch = useDispatch()
   const params = useParams()
   
   // const {user} =  useSelector((state)=> state.authReducer.authData)
-  let {posts, loading} = useSelector((state)=> state.postReducer)
+  let { posts, loading, uploading } = useSelector((state) => state.postReducer)
 
   useEffect(() => {
     dispatch(getTimeline(user._id))
@@ -33,8 +35,7 @@ const Posts = ({ user, setVisible }) => {
   return (
     <div className="Posts">
       {
-        // console.log(posts)
-        loading ? "Fetching data...":
+        loading ? <Loading /> : uploading ? <Loading /> :
         posts.map((post, id)=>{
           return (<Post data={post} id={id} key={id} setVisible={setVisible} />)
         })
