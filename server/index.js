@@ -17,10 +17,7 @@ const app = express();
 
 // CORS configuration
 // For Cors Error
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials: true
-}));
+app.use(cors());
 
 // To serve images for public
 
