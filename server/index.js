@@ -48,10 +48,7 @@ app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
 
 // Cors error for post
-app.options('/posts', cors({
-    origin: "*",
-    credentials: true
-}))
+app.options('/posts', cors())
 
 app.use('/posts', PostRoute)
 
