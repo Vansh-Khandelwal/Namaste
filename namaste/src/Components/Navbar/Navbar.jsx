@@ -14,7 +14,7 @@ import TrendCard from '../Right/TrendCard/TrendCard'
 
 import Navicons from '../Navicons/Navicons'
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
     return (
         <>
             <nav className="navbar">
@@ -30,7 +30,7 @@ const Navbar = () => {
                     <div className="info-mat">
                         <ProfileCard />
                         <Navicons />
-                        <ProfileInfoCard />
+                        <ProfileInfoCard user={user} />
                     </div>
 
                     <h1 className="logo">

@@ -109,7 +109,7 @@ label[for="nav-trend-following"] {
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: center;
     height: 100vh;
 }
@@ -150,14 +150,14 @@ label[for="nav-trend-following"] {
     .navbar {
         display: block;
     }
-    .profile-card {
+    /* .profile-card {
         margin-top: 16rem;
-    }
+    } */
     .TrendCard {
         box-shadow: var(--searchshadow);
     }
     .logo-search {
-        margin-top: 17rem;
+        margin-top: 3rem;
         position: relative;
     }
 }

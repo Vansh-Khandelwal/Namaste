@@ -23,7 +23,7 @@ const Home = () => {
           loading ? <Loading /> :
             user && user._id ?
               <>
-                <Navbar />
+                <Navbar user={user} />
                 <div className='home'>
                   <Profile ProfilePage={false} user={user} />
                   <PostLayout user={user} />
