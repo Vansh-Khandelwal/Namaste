@@ -57,13 +57,13 @@ JWT Auth.
 -> Edit and Delete Post options <br />
 -> Profile Search Option <br />
 -> Add footer to connect/contact to developer for any improvements <br />
--> Improve Responsiveness(Mobile View a little distorted)
--> Add Video Chat Options
--> Add Comment option for post
+-> Improve Responsiveness(Mobile View a little distorted) <br />
+-> Add Video Chat Options <br />
+-> Add Comment option for post <br />
 
 ## Bugs:
 
----> Number of followers and following
----> Loading Spinner UI
+---> Number of followers and following <br />
+---> Loading Spinner UI <br />
 ---> Error: GET http://localhost:8800/socket.io/?EIO=4&transport=polling&t=OzxBfxn net::ERR_CONNECTION_REFUSED <br />
-Whenever exits from chat page
+Whenever exits from chat page <br />
