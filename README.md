@@ -2,7 +2,14 @@
 
 *It is a social media website made on the MERN stack with full implementation of CRUD operations and a chat feature made with use of sockets.io*
 
+### Hosted Link:
 https://namaaste.netlify.app/auth/
+
+### Technologies Used:
+HTML, CSS, Javascript
+React JS, Node JS, Express JS, MongoDB
+Cloudinary, Socket.io, React Redux, Axios, 
+JWT Auth.
 
 
 **Sign Up  Page**
@@ -51,8 +58,12 @@ https://namaaste.netlify.app/auth/
 -> Profile Search Option <br />
 -> Add footer to connect/contact to developer for any improvements <br />
 -> Improve Responsiveness(Mobile View a little distorted)
+-> Add Video Chat Options
+-> Add Comment option for post
 
 ## Bugs:
 
-Error: GET http://localhost:8800/socket.io/?EIO=4&transport=polling&t=OzxBfxn net::ERR_CONNECTION_REFUSED <br />
+---> Number of followers and following
+---> Loading Spinner UI
+---> Error: GET http://localhost:8800/socket.io/?EIO=4&transport=polling&t=OzxBfxn net::ERR_CONNECTION_REFUSED <br />
 Whenever exits from chat page
