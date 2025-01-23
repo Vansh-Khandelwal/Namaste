@@ -9,8 +9,8 @@ Cloudinary, Socket.io, React Redux, Axios, <br />
 JWT Auth <br />
 
 ### Hosted Link:
-Frontend: https://namaaste.netlify.app/auth/
-Backend: https://namaste-yzsb.onrender.com/
+Frontend: https://namaaste.netlify.app/auth/ <br />
+Backend: https://namaste-yzsb.onrender.com/ <br />
 Database: MongoDB
 
 ### Features:
